@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSA - Platform Fondasi Digital UMKM Salatiga</title>
+    <meta name="description" content="Platform fondasi digital untuk UMKM Salatiga. Temukan berbagai usaha lokal dari kuliner, fashion, kerajinan, dan lainnya.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="src/main.css">
+    <style>
+        .swiper-button-next, .swiper-button-prev { color: #D4AF37 !important; }
+        .swiper-pagination-bullet-active { background-color: #D4AF37 !important; }
+    </style>
+</head>
+<body class="bg-arsa-dark">
+    <!-- Navigation -->
+    <nav class="bg-arsa-800 border-b border-arsa-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-black text-white">
+                        <span class="text-gold-500">ARSA</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gold-400 font-semibold">Beranda</a>
+                    <a href="katalog.html" class="text-gray-300 hover:text-gold-400 transition-colors">Katalog UMKM</a>
+                    <a href="kategori.html" class="text-gray-300 hover:text-gold-400 transition-colors">Kategori</a>
+                    <a href="peta.html" class="text-gray-300 hover:text-gold-400 transition-colors">Peta UMKM</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-arsa-900 border-t border-arsa-700">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block text-gold-400 font-semibold">Beranda</a>
+                <a href="katalog.html" class="block text-gray-300 hover:text-gold-400">Katalog UMKM</a>
+                <a href="kategori.html" class="block text-gray-300 hover:text-gold-400">Kategori</a>
+                <a href="peta.html" class="block text-gray-300 hover:text-gold-400">Peta UMKM</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6">
+                    Temukan <span class="text-gold-500">UMKM</span><br>
+                    Lokal Salatiga
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Platform fondasi digital untuk UMKM Salatiga. Jelajahi berbagai usaha lokal dari kuliner, fashion, kerajinan, dan lainnya.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="katalog.html" class="gradient-gold text-black font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all inline-block">
+                        Jelajahi Katalog
+                    </a>
+                    <a href="kategori.html" class="bg-arsa-800 text-white font-bold px-8 py-4 rounded-lg border-2 border-arsa-700 hover:border-gold-500 transition-all inline-block">
+                        Lihat Kategori
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-arsa-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-black text-gold-500 mb-2">150+</div>
+                    <div class="text-gray-400">UMKM Terdaftar</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-gold-500 mb-2">12</div>
+                    <div class="text-gray-400">Kategori Usaha</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-gold-500 mb-2">4</div>
+                    <div class="text-gray-400">Kecamatan</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-gold-500 mb-2">95%</div>
+                    <div class="text-gray-400">Profil Lengkap</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Slider -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-black text-white">Kategori UMKM</h2>
+                <a href="kategori.html" class="text-gold-400 hover:text-gold-300 font-semibold">
+                    Lihat Semua →
+                </a>
+            </div>
+            
+            <div class="swiper categorySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Category Cards -->
+                    <div class="swiper-slide">
+                        <a href="katalog.html?kategori=kuliner" class="block bg-arsa-800 border border-arsa-700 rounded-xl p-6 hover:border-gold-500 transition-all">
+                            <div class="text-5xl mb-4">🍽️</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Kuliner</h3>
+                            <p class="text-gray-400 text-sm mb-4">45 UMKM</p>
+                            <div class="w-full bg-arsa-900 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="katalog.html?kategori=fashion" class="block bg-arsa-800 border border-arsa-700 rounded-xl p-6 hover:border-gold-500 transition-all">
+                            <div class="text-5xl mb-4">👗</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Fashion</h3>
+                            <p class="text-gray-400 text-sm mb-4">28 UMKM</p>
+                            <div class="w-full bg-arsa-900 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 19%"></div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="katalog.html?kategori=kerajinan" class="block bg-arsa-800 border border-arsa-700 rounded-xl p-6 hover:border-gold-500 transition-all">
+                            <div class="text-5xl mb-4">🎨</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Kerajinan</h3>
+                            <p class="text-gray-400 text-sm mb-4">22 UMKM</p>
+                            <div class="w-full bg-arsa-900 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 15%"></div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="katalog.html?kategori=jasa" class="block bg-arsa-800 border border-arsa-700 rounded-xl p-6 hover:border-gold-500 transition-all">
+                            <div class="text-5xl mb-4">🔧</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Jasa</h3>
+                            <p class="text-gray-400 text-sm mb-4">18 UMKM</p>
+                            <div class="w-full bg-arsa-900 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 12%"></div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="katalog.html?kategori=pertanian" class="block bg-arsa-800 border border-arsa-700 rounded-xl p-6 hover:border-gold-500 transition-all">
+                            <div class="text-5xl mb-4">🌾</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Pertanian</h3>
+                            <p class="text-gray-400 text-sm mb-4">15 UMKM</p>
+                            <div class="w-full bg-arsa-900 rounded-full h-2">
+                                <div class="bg-gold-500 h-2 rounded-full" style="width: 10%"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured UMKM -->
+    <section class="py-16 bg-arsa-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-black text-white">UMKM Terbaru</h2>
+                <a href="katalog.html" class="text-gold-400 hover:text-gold-300 font-semibold">
+                    Lihat Semua →
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- UMKM Card 1 -->
+                <a href="detail.html?id=1" class="block bg-arsa-900 border border-arsa-700 rounded-xl overflow-hidden hover:border-gold-500 transition-all">
+                    <div class="aspect-video bg-gradient-to-br from-gold-500/20 to-arsa-800 flex items-center justify-center">
+                        <span class="text-6xl">🥟</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-gold-500/10 text-gold-400 rounded-full text-xs font-semibold">Kuliner</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-semibold">Sidorejo</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Pastelo Singkong Keju D9</h3>
+                        <p class="text-gray-400 text-sm mb-4">Camilan khas Salatiga dengan cita rasa gurih dan renyah. Pastelo D9 dibuat dari singkong pilihan...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gold-400 font-semibold text-sm">Lihat Detail →</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs font-bold">AKTIF</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- UMKM Card 2 -->
+                <a href="detail.html?id=2" class="block bg-arsa-900 border border-arsa-700 rounded-xl overflow-hidden hover:border-gold-500 transition-all">
+                    <div class="aspect-video bg-gradient-to-br from-gold-500/20 to-arsa-800 flex items-center justify-center">
+                        <span class="text-6xl">🍛</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-gold-500/10 text-gold-400 rounded-full text-xs font-semibold">Kuliner</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-semibold">Argomulyo</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Sambal Tumpang Koyor</h3>
+                        <p class="text-gray-400 text-sm mb-4">Cita rasa tradisional kaya rempah. Sambal tumpang khas Salatiga dengan perpaduan tempe semangit...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gold-400 font-semibold text-sm">Lihat Detail →</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs font-bold">AKTIF</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- UMKM Card 3 -->
+                <a href="detail.html?id=3" class="block bg-arsa-900 border border-arsa-700 rounded-xl overflow-hidden hover:border-gold-500 transition-all">
+                    <div class="aspect-video bg-gradient-to-br from-gold-500/20 to-arsa-800 flex items-center justify-center">
+                        <span class="text-6xl">🍠</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-gold-500/10 text-gold-400 rounded-full text-xs font-semibold">Kuliner</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-semibold">Sidomukti</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Gethuk Ketek Khas Salatiga</h3>
+                        <p class="text-gray-400 text-sm mb-4">Jajanan legendaris ikon kota Salatiga. Gethuk ketek dibuat dari singkong kukus yang ditumbuk halus...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gold-400 font-semibold text-sm">Lihat Detail →</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs font-bold">AKTIF</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-black text-white mb-6">
+                Punya Usaha di Salatiga?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Daftarkan UMKM Anda dan tingkatkan visibilitas usaha Anda secara online. Gratis dan mudah!
+            </p>
+            <a href="#" class="gradient-gold text-black font-bold px-8 py-4 rounded-lg hover:opacity-90 transition-all inline-block">
+                Daftar Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-arsa-800 border-t border-arsa-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-black text-white mb-4">
+                        <span class="text-gold-500">ARSA</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        Platform fondasi digital untuk UMKM Salatiga. Membangun identitas digital dan meningkatkan visibilitas usaha lokal.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Navigasi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold-400 text-sm">Beranda</a></li>
+                        <li><a href="katalog.html" class="text-gray-400 hover:text-gold-400 text-sm">Katalog UMKM</a></li>
+                        <li><a href="kategori.html" class="text-gray-400 hover:text-gold-400 text-sm">Kategori</a></li>
+                        <li><a href="peta.html" class="text-gray-400 hover:text-gold-400 text-sm">Peta UMKM</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Tentang</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">Tentang ARSA</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">Cara Daftar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Dikembangkan oleh</h4>
+                    <p class="text-gray-400 text-sm mb-2">Solvia</p>
+                    <p class="text-gray-400 text-xs">© 2026 ARSA. All rights reserved.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-arsa-700 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    ARSA adalah platform fondasi digital, bukan marketplace atau aplikasi transaksi.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Category Swiper
+        const categorySwiper = new Swiper('.categorySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    </script>
+</body>
+</html>
+""

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0F1419;
+        color: #ffffff;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+    }
+}
+
+@layer utilities {
+    .bg-arsa-dark { background-color: #0F1419; }
+    .bg-arsa-800 { background-color: #1A1F26; }
+    .bg-arsa-900 { background-color: #252D38; }
+    .border-arsa-700 { border-color: #2D3748; }
+    .border-arsa-800 { border-color: #1A1F26; }
+    .text-gold-400 { color: #F6E05E; }
+    .text-gold-500 { color: #D4AF37; }
+    .bg-gold-500 { background-color: #D4AF37; }
+    .border-gold-500 { border-color: #D4AF37; }
+    .gradient-gold { background: linear-gradient(135deg, #D4AF37 0%, #F6E05E 100%); }
+    .hero-gradient { background: linear-gradient(180deg, rgba(15, 20, 25, 0) 0%, #0F1419 100%); }
+}

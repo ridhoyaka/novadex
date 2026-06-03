@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta UMKM - ARSA Salatiga</title>
+    <meta name="description" content="Temukan lokasi UMKM di Salatiga melalui peta interaktif. Lihat sebaran usaha lokal berdasarkan wilayah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="src/main.css">
+    <style>
+        #map { height: calc(100vh - 64px); width: 100%; }
+        .leaflet-popup-content-wrapper { background-color: #1A1F26; color: white; border: 1px solid #2D3748; }
+        .leaflet-popup-tip { background-color: #1A1F26; }
+        .sidebar { height: calc(100vh - 64px); overflow-y: auto; }
+        @media (max-width: 768px) {
+            .sidebar { height: auto; max-height: 50vh; }
+            #map { height: 50vh; }
+        }
+    </style>
+</head>
+<body class="bg-arsa-dark">
+    <nav class="bg-arsa-800 border-b border-arsa-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-black text-white"><span class="text-gold-500">ARSA</span></a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-gold-400">Beranda</a>
+                    <a href="katalog.html" class="text-gray-300 hover:text-gold-400">Katalog UMKM</a>
+                    <a href="kategori.html" class="text-gray-300 hover:text-gold-400">Kategori</a>
+                    <a href="peta.html" class="text-gold-400 font-semibold">Peta UMKM</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-arsa-900 border-t border-arsa-700">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block text-gray-300">Beranda</a>
+                <a href="katalog.html" class="block text-gray-300">Katalog UMKM</a>
+                <a href="kategori.html" class="block text-gray-300">Kategori</a>
+                <a href="peta.html" class="block text-gold-400 font-semibold">Peta UMKM</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div class="sidebar w-full md:w-80 bg-arsa-800 border-r border-arsa-700 p-4">
+            <div class="mb-6">
+                <h2 class="text-xl font-black text-white mb-4">🗺️ Peta UMKM Salatiga</h2>
+                <p class="text-gray-400 text-sm mb-4">Jelajahi lokasi UMKM di Salatiga melalui peta interaktif</p>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <div class="bg-arsa-900 rounded-lg p-3 border border-arsa-700">
+                        <div class="text-2xl font-black text-gold-500">12</div>
+                        <div class="text-gray-400 text-xs">Total UMKM</div>
+                    </div>
+                    <div class="bg-arsa-900 rounded-lg p-3 border border-arsa-700">
+                        <div class="text-2xl font-black text-gold-500">4</div>
+                        <div class="text-gray-400 text-xs">Kecamatan</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="mb-6">
+                <h3 class="text-white font-bold mb-3">Filter</h3>
+                <div class="space-y-3">
+                    <select id="category-filter" class="w-full bg-arsa-900 border border-arsa-700 rounded-lg px-3 py-2 text-white text-sm focus:border-gold-500 outline-none">
+                        <option value="">Semua Kategori</option>
+                        <option value="kuliner">🍽️ Kuliner</option>
+                        <option value="fashion">👗 Fashion</option>
+                        <option value="kerajinan">🎨 Kerajinan</option>
+                        <option value="jasa">🔧 Jasa</option>
+                        <option value="pertanian">🌾 Pertanian</option>
+                    </select>
+                    
+                    <select id="district-filter" class="w-full bg-arsa-900 border border-arsa-700 rounded-lg px-3 py-2 text-white text-sm focus:border-gold-500 outline-none">
+                        <option value="">Semua Kecamatan</option>
+                        <option value="sidorejo">Sidorejo</option>
+                        <option value="argomulyo">Argomulyo</option>
+                        <option value="sidomukti">Sidomukti</option>
+                        <option value="tingkir">Tingkir</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- UMKM List -->
+            <div>
+                <h3 class="text-white font-bold mb-3">Daftar UMKM (<span id="umkm-count">12</span>)</h3>
+                <div id="umkm-list" class="space-y-2"></div>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="flex-1">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script>
+        const umkmData = [
+            { id: 1, name: 'Pastelo Singkong Keju D9', category: 'kuliner', district: 'sidorejo', icon: '🥟', lat: -7.3305, lng: 110.4917 },
+            { id: 2, name: 'Sambal Tumpang Koyor', category: 'kuliner', district: 'argomulyo', icon: '🍛', lat: -7.3205, lng: 110.5017 },
+            { id: 3, name: 'Gethuk Ketek Khas Salatiga', category: 'kuliner', district: 'sidomukti', icon: '🍠', lat: -7.3405, lng: 110.4817 },
+            { id: 4, name: 'Gethuk Crispy Argotelo', category: 'kuliner', district: 'tingkir', icon: '🧀', lat: -7.3105, lng: 110.5117 },
+            { id: 5, name: 'Batik Salatiga Heritage', category: 'fashion', district: 'sidorejo', icon: '👗', lat: -7.3355, lng: 110.4967 },
+            { id: 6, name: 'Kerajinan Bambu Nusantara', category: 'kerajinan', district: 'argomulyo', icon: '🎨', lat: -7.3255, lng: 110.5067 },
+            { id: 7, name: 'Jasa Fotografi Pro', category: 'jasa', district: 'sidomukti', icon: '📸', lat: -7.3455, lng: 110.4867 },
+            { id: 8, name: 'Sayur Organik Segar', category: 'pertanian', district: 'tingkir', icon: '🥬', lat: -7.3155, lng: 110.5167 },
+            { id: 9, name: 'Kopi Robusta Salatiga', category: 'kuliner', district: 'sidorejo', icon: '☕', lat: -7.3285, lng: 110.4937 },
+            { id: 10, name: 'Tas Rajut Handmade', category: 'kerajinan', district: 'argomulyo', icon: '👜', lat: -7.3225, lng: 110.5037 },
+            { id: 11, name: 'Laundry Express 24 Jam', category: 'jasa', district: 'sidomukti', icon: '🧺', lat: -7.3425, lng: 110.4837 },
+            { id: 12, name: 'Madu Hutan Asli', category: 'pertanian', district: 'tingkir', icon: '🍯', lat: -7.3125, lng: 110.5137 },
+        ];
+
+        let filteredData = [...umkmData];
+        let map, markers;
+
+        function initMap() {
+            map = L.map('map').setView([-7.3305, 110.4917], 13);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            markers = L.markerClusterGroup({
+                maxClusterRadius: 50,
+                spiderfyOnMaxZoom: true,
+                showCoverageOnHover: false,
+            });
+
+            updateMap();
+        }
+
+        function updateMap() {
+            markers.clearLayers();
+
+            filteredData.forEach(umkm => {
+                const marker = L.marker([umkm.lat, umkm.lng]);
+                
+                marker.bindPopup(`
+                    <div style="min-width: 200px;">
+                        <div style="font-size: 32px; text-align: center; margin-bottom: 8px;">${umkm.icon}</div>
+                        <h3 style="font-weight: bold; margin-bottom: 4px; color: #F6E05E;">${umkm.name}</h3>
+                        <p style="font-size: 12px; color: #9CA3AF; margin-bottom: 8px; text-transform: capitalize;">${umkm.category} • ${umkm.district}</p>
+                        <a href="detail.html?id=${umkm.id}" style="display: inline-block; background: linear-gradient(135deg, #D4AF37 0%, #F6E05E 100%); color: black; font-weight: bold; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 12px;">
+                            Lihat Detail
+                        </a>
+                    </div>
+                `);
+
+                markers.addLayer(marker);
+            });
+
+            map.addLayer(markers);
+            updateList();
+        }
+
+        function updateList() {
+            const list = document.getElementById('umkm-list');
+            const count = document.getElementById('umkm-count');
+            
+            count.textContent = filteredData.length;
+            
+            list.innerHTML = filteredData.map(umkm => `
+                <div class="bg-arsa-900 border border-arsa-700 rounded-lg p-3 hover:border-gold-500 transition-all cursor-pointer" onclick="focusMarker(${umkm.lat}, ${umkm.lng})">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">${umkm.icon}</span>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-white font-semibold text-sm truncate">${umkm.name}</h4>
+                            <p class="text-gray-400 text-xs capitalize">${umkm.category} • ${umkm.district}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function focusMarker(lat, lng) {
+            map.setView([lat, lng], 16);
+            
+            markers.eachLayer(marker => {
+                if (marker.getLatLng().lat === lat && marker.getLatLng().lng === lng) {
+                    marker.openPopup();
+                }
+            });
+        }
+
+        function applyFilters() {
+            const category = document.getElementById('category-filter').value;
+            const district = document.getElementById('district-filter').value;
+            
+            filteredData = umkmData.filter(umkm => {
+                const matchCategory = !category || umkm.category === category;
+                const matchDistrict = !district || umkm.district === district;
+                return matchCategory && matchDistrict;
+            });
+            
+            updateMap();
+        }
+
+        document.getElementById('category-filter').addEventListener('change', applyFilters);
+        document.getElementById('district-filter').addEventListener('change', applyFilters);
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        initMap();
+    </script>
+</body>
+</html>

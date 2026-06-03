@@ -1,0 +1,15 @@
+# robots.txt for ARSA - Aplikasi Registrasi Salatiga
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /superadmin/
+Disallow: /umkm/profil/
+Disallow: /login
+Disallow: /register
+
+# Sitemap
+Sitemap: https://arsa-salatiga.id/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

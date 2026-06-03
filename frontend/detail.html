@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Detail UMKM - ARSA Salatiga</title>
+    <meta name="description" id="page-description" content="Detail informasi UMKM di Salatiga">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F1419; color: #ffffff; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+        .bg-arsa-dark { background-color: #0F1419; }
+        .bg-arsa-800 { background-color: #1A1F26; }
+        .bg-arsa-900 { background-color: #252D38; }
+        .border-arsa-700 { border-color: #2D3748; }
+        .text-gold-400 { color: #F6E05E; }
+        .text-gold-500 { color: #D4AF37; }
+        .gradient-gold { background: linear-gradient(135deg, #D4AF37 0%, #F6E05E 100%); }
+        #map { height: 400px; border-radius: 12px; }
+    </style>
+</head>
+<body class="bg-arsa-dark">
+    <nav class="bg-arsa-800 border-b border-arsa-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-black text-white"><span class="text-gold-500">ARSA</span></a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-gold-400">Beranda</a>
+                    <a href="katalog.html" class="text-gray-300 hover:text-gold-400">Katalog UMKM</a>
+                    <a href="kategori.html" class="text-gray-300 hover:text-gold-400">Kategori</a>
+                    <a href="peta.html" class="text-gray-300 hover:text-gold-400">Peta UMKM</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-arsa-900 border-t border-arsa-700">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block text-gray-300">Beranda</a>
+                <a href="katalog.html" class="block text-gray-300">Katalog UMKM</a>
+                <a href="kategori.html" class="block text-gray-300">Kategori</a>
+                <a href="peta.html" class="block text-gray-300">Peta UMKM</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-8 bg-arsa-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex text-sm text-gray-400 mb-4">
+                <a href="index.html" class="hover:text-gold-400">Beranda</a>
+                <span class="mx-2">/</span>
+                <a href="katalog.html" class="hover:text-gold-400">Katalog</a>
+                <span class="mx-2">/</span>
+                <span id="breadcrumb-category" class="text-white">Kuliner</span>
+                <span class="mx-2">/</span>
+                <span id="breadcrumb-name" class="text-white">UMKM</span>
+            </nav>
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-arsa-800 border border-arsa-700 rounded-xl p-8">
+                        <div class="flex items-start gap-6 mb-6">
+                            <div id="umkm-icon" class="w-24 h-24 bg-arsa-900 rounded-xl flex items-center justify-center text-5xl flex-shrink-0">🏪</div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span id="category-badge" class="px-3 py-1 bg-gold-500/10 text-gold-400 rounded-full text-sm font-semibold">Kuliner</span>
+                                    <span id="district-badge" class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-semibold">Sidorejo</span>
+                                    <span class="px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm font-bold">AKTIF</span>
+                                </div>
+                                <h1 id="umkm-name" class="text-3xl font-black text-white mb-2">Nama UMKM</h1>
+                                <p id="umkm-short-desc" class="text-gray-400">Deskripsi singkat UMKM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-arsa-700 pt-6">
+                            <h2 class="text-xl font-bold text-white mb-4">Tentang Usaha</h2>
+                            <p id="umkm-description" class="text-gray-300 leading-relaxed">Deskripsi lengkap akan muncul di sini...</p>
+                        </div>
+                    </div>
+
+                    <div id="location-section" class="bg-arsa-800 border border-arsa-700 rounded-xl p-8">
+                        <h2 class="text-xl font-bold text-white mb-4">📍 Lokasi Usaha</h2>
+                        <div id="map" class="mb-4"></div>
+                        <p id="address-text" class="text-gray-400 mb-4">Alamat akan muncul di sini</p>
+                        <a id="google-maps-link" href="#" target="_blank" class="inline-block gradient-gold text-black font-bold px-6 py-3 rounded-lg hover:opacity-90">
+                            Buka di Google Maps
+                        </a>
+                    </div>
+
+                    <div id="related-section" class="bg-arsa-800 border border-arsa-700 rounded-xl p-8">
+                        <h2 class="text-xl font-bold text-white mb-6">UMKM Sejenis</h2>
+                        <div id="related-umkm" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-arsa-800 border border-arsa-700 rounded-xl p-6 sticky top-24">
+                        <h3 class="text-lg font-bold text-white mb-4">Hubungi Kami</h3>
+                        <a id="whatsapp-btn" href="#" target="_blank" class="block w-full gradient-gold text-black font-bold px-6 py-4 rounded-lg hover:opacity-90 text-center mb-4">
+                            <div class="flex items-center justify-center gap-2">
+                                <span class="text-2xl">💬</span>
+                                <span>Chat via WhatsApp</span>
+                            </div>
+                        </a>
+                        
+                        <div class="border-t border-arsa-700 pt-4 mt-4">
+                            <h4 class="text-white font-semibold mb-3">Bagikan</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="shareToFacebook()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm font-semibold">
+                                    Facebook
+                                </button>
+                                <button onclick="shareToTwitter()" class="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 text-sm font-semibold">
+                                    Twitter
+                                </button>
+                                <button onclick="shareToWhatsApp()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm font-semibold">
+                                    WhatsApp
+                                </button>
+                                <button onclick="copyLink()" class="bg-arsa-900 text-white px-4 py-2 rounded-lg hover:bg-arsa-700 text-sm font-semibold border border-arsa-700">
+                                    Salin Link
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-arsa-800 border-t border-arsa-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-black text-white mb-4"><span class="text-gold-500">ARSA</span></h3>
+                    <p class="text-gray-400 text-sm">Platform fondasi digital untuk UMKM Salatiga.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Navigasi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-gold-400 text-sm">Beranda</a></li>
+                        <li><a href="katalog.html" class="text-gray-400 hover:text-gold-400 text-sm">Katalog UMKM</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Tentang</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">Tentang ARSA</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold-400 text-sm">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Dikembangkan oleh</h4>
+                    <p class="text-gray-400 text-sm">Solvia</p>
+                    <p class="text-gray-400 text-xs">© 2026 ARSA</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const umkmData = {
+            1: { name: 'Pastelo Singkong Keju D9', category: 'Kuliner', district: 'Sidorejo', icon: '🥟', desc: 'Camilan khas Salatiga dengan cita rasa gurih dan renyah', fullDesc: 'Pastelo D9 dibuat dari singkong pilihan dengan isian keju gurih, dibalut kulit renyah, dan digoreng hingga keemasan. Cocok untuk camilan harian maupun oleh-oleh khas Salatiga. Kami menggunakan bahan-bahan berkualitas dan proses pembuatan yang higienis.', lat: -7.3305, lng: 110.4917, address: 'Jl. Diponegoro No. 123, Sidorejo, Salatiga', whatsapp: '6281234567890' },
+            2: { name: 'Sambal Tumpang Koyor', category: 'Kuliner', district: 'Argomulyo', icon: '🍛', desc: 'Cita rasa tradisional kaya rempah', fullDesc: 'Sambal tumpang khas Salatiga dengan perpaduan tempe semangit dan koyor sapi yang empuk. Memiliki rasa gurih, legit, dan aroma khas Jawa. Resep turun-temurun yang dijaga keasliannya.', lat: -7.3205, lng: 110.5017, address: 'Jl. Veteran No. 45, Argomulyo, Salatiga', whatsapp: '6281234567891' },
+            3: { name: 'Gethuk Ketek Khas Salatiga', category: 'Kuliner', district: 'Sidomukti', icon: '🍠', desc: 'Jajanan legendaris ikon kota Salatiga', fullDesc: 'Gethuk ketek dibuat dari singkong kukus yang ditumbuk halus tanpa bahan pengawet, disajikan dengan kelapa parut segar dan rasa manis alami. Jajanan legendaris yang menjadi ikon kuliner Salatiga.', lat: -7.3405, lng: 110.4817, address: 'Jl. Jenderal Sudirman No. 78, Sidomukti, Salatiga', whatsapp: '6281234567892' },
+        };
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const umkmId = urlParams.get('id') || '1';
+        const umkm = umkmData[umkmId] || umkmData[1];
+        
+        document.getElementById('page-title').textContent = `${umkm.name} - ARSA Salatiga`;
+        document.getElementById('page-description').content = umkm.desc;
+        document.getElementById('umkm-icon').innerHTML = `<span class="text-5xl">${umkm.icon}</span>`;
+        document.getElementById('umkm-name').textContent = umkm.name;
+        document.getElementById('umkm-short-desc').textContent = umkm.desc;
+        document.getElementById('umkm-description').textContent = umkm.fullDesc;
+        document.getElementById('category-badge').textContent = umkm.category;
+        document.getElementById('district-badge').textContent = umkm.district;
+        document.getElementById('breadcrumb-category').textContent = umkm.category;
+        document.getElementById('breadcrumb-name').textContent = umkm.name;
+        document.getElementById('address-text').textContent = umkm.address;
+        document.getElementById('whatsapp-btn').href = `https://wa.me/${umkm.whatsapp}?text=Halo, saya tertarik dengan ${umkm.name}`;
+        document.getElementById('google-maps-link').href = `https://www.google.com/maps?q=${umkm.lat},${umkm.lng}`;
+        
+        const map = L.map('map').setView([umkm.lat, umkm.lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        L.marker([umkm.lat, umkm.lng]).addTo(map).bindPopup(`<b>${umkm.name}</b><br>${umkm.address}`).openPopup();
+        
+        const relatedUmkm = Object.entries(umkmData).filter(([id, data]) => id !== umkmId && data.category === umkm.category).slice(0, 2);
+        document.getElementById('related-umkm').innerHTML = relatedUmkm.map(([id, data]) => `
+            <a href="detail.html?id=${id}" class="block bg-arsa-900 border border-arsa-700 rounded-lg p-4 hover:border-gold-500 transition-all">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-3xl">${data.icon}</span>
+                    <div class="flex-1">
+                        <h3 class="text-white font-bold text-sm">${data.name}</h3>
+                        <p class="text-gray-400 text-xs">${data.district}</p>
+                    </div>
+                </div>
+            </a>
+        `).join('');
+        
+        function shareToFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+        }
+        
+        function shareToTwitter() {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(umkm.name + ' - ' + umkm.desc)}`, '_blank');
+        }
+        
+        function shareToWhatsApp() {
+            window.open(`https://wa.me/?text=${encodeURIComponent(umkm.name + ' - ' + umkm.desc + ' ' + window.location.href)}`, '_blank');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link berhasil disalin!');
+        }
+        
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
