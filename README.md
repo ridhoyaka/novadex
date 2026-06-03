@@ -1,4 +1,4 @@
-# ARSA - Platform Katalog Digital UMKM Salatiga
+# Novadex - Platform Katalog Digital UMKM Salatiga
 
 <div align="center">
 
@@ -71,7 +71,7 @@
 ```bash
 # Clone repository
 git clone <repository-url>
-cd arsa
+cd Novadex
 
 # Install dependencies
 composer install
@@ -82,7 +82,7 @@ cp .env.example .env
 php artisan key:generate
 
 # Configure database in .env
-DB_DATABASE=arsa
+DB_DATABASE=Novadex
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -99,11 +99,11 @@ php artisan serve
 ### Default Credentials
 
 **Super Admin:**
-- Email: `superadmin@arsa.com`
+- Email: `superadmin@Novadex.com`
 - Password: `password`
 
 **Admin:**
-- Email: `admin@arsa.com`
+- Email: `admin@Novadex.com`
 - Password: `password`
 
 **UMKM (5 demo accounts):**
@@ -149,11 +149,11 @@ php artisan serve
 - **Admin/UMKM/Super Admin:** Modern sidebar layout (horizontal left)
 
 ### Color Palette
-- **Primary:** ARSA (Black/Gray scale)
-  - `arsa-950`: #050505 (Sidebar)
-  - `arsa-900`: #0d0d0d (Background)
-  - `arsa-800`: #212529 (Borders)
-  - `arsa-700`: #343a40 (Cards)
+- **Primary:** Novadex (Black/Gray scale)
+  - `Novadex-950`: #050505 (Sidebar)
+  - `Novadex-900`: #0d0d0d (Background)
+  - `Novadex-800`: #212529 (Borders)
+  - `Novadex-700`: #343a40 (Cards)
 - **Accent:** Gold
   - `gold-400`: #fbbf24 (Highlights)
   - `gold-500`: #f59e0b (Buttons)
@@ -168,8 +168,8 @@ php artisan serve
 
 ```bash
 # Clone & Install
-git clone https://github.com/yourusername/arsa-umkm-catalog.git
-cd arsa-umkm-catalog
+git clone https://github.com/yourusername/Novadex-umkm-catalog.git
+cd Novadex-umkm-catalog
 composer install
 npm install
 
@@ -186,7 +186,7 @@ php artisan serve
 ```
 
 **Demo Credentials:**
-- **Admin:** admin@arsa.com / password
+- **Admin:** admin@Novadex.com / password
 - **UMKM:** busiti@example.com / password
 
 ---
@@ -214,7 +214,7 @@ php artisan serve
 
 - [FINAL_STATUS.md](FINAL_STATUS.md) - Status lengkap
 - [FITUR_LENGKAP.md](FITUR_LENGKAP.md) - Dokumentasi fitur
-- [LAPORAN_WEBSITE_ARSA.md](LAPORAN_WEBSITE_ARSA.md) - Laporan development
+- [LAPORAN_WEBSITE_Novadex.md](LAPORAN_WEBSITE_Novadex.md) - Laporan development
 
 ---
 
@@ -235,9 +235,9 @@ php artisan serve
 
 ---
 
-## 📖 Tentang ARSA
+## 📖 Tentang Novadex
 
-ARSA adalah platform katalog digital yang membangun ekosistem digital untuk UMKM di Kota Salatiga. Platform ini menyediakan direktori publik yang memudahkan masyarakat menemukan dan menghubungi bisnis lokal, sekaligus membantu pemerintah dalam memahami ekosistem UMKM melalui data dan visualisasi yang terstruktur.
+Novadex adalah platform katalog digital yang membangun ekosistem digital untuk UMKM di Kota Salatiga. Platform ini menyediakan direktori publik yang memudahkan masyarakat menemukan dan menghubungi bisnis lokal, sekaligus membantu pemerintah dalam memahami ekosistem UMKM melalui data dan visualisasi yang terstruktur.
 
 ### 🎯 Tujuan
 
@@ -272,7 +272,7 @@ ARSA adalah platform katalog digital yang membangun ekosistem digital untuk UMKM
 ## 🎨 Design System
 
 ### Tema
-- **Dark Theme** - Elegant black/dark gray base (arsa-900 to arsa-950)
+- **Dark Theme** - Elegant black/dark gray base (Novadex-900 to Novadex-950)
 - **Gold Accents** - Sophisticated gold highlights (gold-400 to gold-600)
 - **Typography** - Space Grotesk (headers) + Inter (body)
 - **Geometric Patterns** - Modern architectural design elements
@@ -321,8 +321,8 @@ ARSA adalah platform katalog digital yang membangun ekosistem digital untuk UMKM
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/arsa-umkm-catalog.git
-cd arsa-umkm-catalog
+git clone https://github.com/yourusername/Novadex-umkm-catalog.git
+cd Novadex-umkm-catalog
 ```
 
 ### 2. Install Dependencies
@@ -343,7 +343,7 @@ Edit `.env` file:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=arsa_umkm_catalog
+DB_DATABASE=Novadex_umkm_catalog
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -376,7 +376,7 @@ Buka browser: `http://127.0.0.1:8000`
 ## 🔑 Demo Credentials
 
 ### Admin
-- **Email:** admin@arsa.com
+- **Email:** admin@Novadex.com
 - **Password:** password
 
 ### UMKM Owner
@@ -411,7 +411,7 @@ Tidak ada API public. Semua akses melalui web interface.
 
 ### File Structure
 ```
-arsa-umkm-catalog/
+Novadex-umkm-catalog/
 ├── app/
 │   ├── Http/Controllers/
 │   │   ├── Admin/          # Admin controllers
@@ -508,10 +508,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 Untuk pertanyaan dan dukungan:
-- **Email:** admin@arsa.com
+- **Email:** admin@Novadex.com
 - **Website:** http://127.0.0.1:8000
 - **Documentation:** [FITUR_LENGKAP.md](FITUR_LENGKAP.md)
-- **Report:** [LAPORAN_WEBSITE_ARSA.md](LAPORAN_WEBSITE_ARSA.md)
+- **Report:** [LAPORAN_WEBSITE_Novadex.md](LAPORAN_WEBSITE_Novadex.md)
 
 ---
 
@@ -530,6 +530,6 @@ Untuk pertanyaan dan dukungan:
 
 **Made with ❤️ for UMKM Salatiga**
 
-[⬆ Back to Top](#arsa---platform-katalog-digital-umkm-salatiga)
+[⬆ Back to Top](#Novadex---platform-katalog-digital-umkm-salatiga)
 
 </div>
