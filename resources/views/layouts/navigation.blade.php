@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-gold-500 to-gold-600 rounded-lg flex items-center justify-center text-arsa-900 font-bold text-xl shadow-lg">
+                        <div class="w-10 h-10 bg-gold-400 rounded-sm flex items-center justify-center text-arsa-900 font-bold text-xl shadow-lg">
                             N
                         </div>
                         <span class="text-xl font-bold text-white">NovaDex</span>

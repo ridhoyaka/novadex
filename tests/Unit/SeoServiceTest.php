@@ -44,7 +44,7 @@ test('generates title with business name, category, and district', function () {
     expect($title)->toContain('Warung Makan Sederhana');
     expect($title)->toContain('Kuliner');
     expect($title)->toContain('Sidorejo');
-    expect($title)->toContain('ARSA');
+    expect($title)->toContain('NovaDex');
 });
 
 test('generates title with default location when district is null', function () {
@@ -487,7 +487,7 @@ test('generates title handles missing category gracefully', function () {
     
     expect($title)->toContain('Warung Makan');
     expect($title)->toContain('Sidorejo');
-    expect($title)->toContain('ARSA');
+    expect($title)->toContain('NovaDex');
 });
 
 test('structured data handles missing district gracefully', function () {

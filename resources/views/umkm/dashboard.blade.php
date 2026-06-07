@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-6 lg:py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             @if(session('success'))
             <div class="mb-4 bg-gold-900/20 border border-gold-500 text-gold-300 px-4 py-3 rounded-lg">
                 {{ session('success') }}
@@ -166,11 +166,11 @@
                 <div class="bg-arsa-900 overflow-hidden shadow-xl sm:rounded-lg border border-arsa-800 hover:border-gold-500 transition-all group">
                     <div class="p-6 text-center">
                         <div class="text-3xl mb-2">🔗</div>
-                        <h4 class="font-semibold mb-2 text-white">Halaman Publik</h4>
-                        <p class="text-xs text-arsa-400 mb-3">Lihat profil Anda seperti yang dilihat pelanggan</p>
+                        <h4 class="font-semibold mb-2 text-white">Website Saya</h4>
+                        <p class="text-xs text-arsa-400 mb-3">Buka halaman publik usaha Anda seperti yang dilihat pelanggan</p>
                         @if($profile->is_published)
                         <a href="{{ route('umkm.show', $profile->slug) }}" target="_blank" class="text-gold-400 hover:text-gold-300 transition-colors font-medium">
-                            Buka Halaman →
+                            Buka Website Saya →
                         </a>
                         @else
                         <span class="text-arsa-500 text-sm">Aktifkan profil terlebih dahulu</span>

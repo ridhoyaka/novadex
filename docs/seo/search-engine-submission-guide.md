@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide provides step-by-step instructions for submitting the ARSA platform sitemap to major search engines and monitoring indexing status. These steps are essential for ensuring that UMKM profiles are discoverable through search engines like Google and Bing.
+This guide provides step-by-step instructions for submitting the NovaDex platform sitemap to major search engines and monitoring indexing status. These steps are essential for ensuring that UMKM profiles are discoverable through search engines like Google and Bing.
 
 **Prerequisites:**
 - Sitemap is already generated and accessible at: `https://yourdomain.com/sitemap.xml`
@@ -262,7 +262,7 @@ To check a specific UMKM profile:
 
 ### 2. Sitemap Updates
 
-The ARSA sitemap is automatically generated and cached. To ensure search engines get the latest version:
+The NovaDex sitemap is automatically generated and cached. To ensure search engines get the latest version:
 
 - **Automatic**: The sitemap updates daily with new/modified UMKM profiles
 - **Manual**: If you need to force an update, clear the application cache:
@@ -532,11 +532,11 @@ If you encounter issues not covered in this guide:
    - [Google Search Central Community](https://support.google.com/webmasters/community)
    - [Bing Webmaster Community](https://www.bing.com/webmasters/community)
 3. **Contact the development team** for technical issues
-4. **Review the ARSA technical documentation** for system-specific questions
+4. **Review the NovaDex technical documentation** for system-specific questions
 
 ---
 
 **Document Version:** 1.0  
 **Last Updated:** 2026-02-07  
-**Maintained By:** ARSA Development Team  
+**Maintained By:** NovaDex Development Team  
 **Next Review:** 2026-05-07

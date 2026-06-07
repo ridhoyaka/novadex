@@ -1,4 +1,4 @@
-# Analisis Kesesuaian Sistem ARSA dengan Konteks
+# Analisis Kesesuaian Sistem NovaDex dengan Konteks
 
 **Tanggal Analisis:** 2026-02-08  
 **Versi Sistem:** v3.0  
@@ -9,7 +9,7 @@
 ## 🎯 EXECUTIVE SUMMARY
 
 ### ✅ Kesesuaian Tinggi (90%)
-Sistem ARSA v3.0 sudah sangat sesuai dengan konteks dan prinsip inti yang ditetapkan. Beberapa area minor perlu penyesuaian untuk mencapai 100% alignment.
+Sistem NovaDex v3.0 sudah sangat sesuai dengan konteks dan prinsip inti yang ditetapkan. Beberapa area minor perlu penyesuaian untuk mencapai 100% alignment.
 
 ### 📊 Skor Kesesuaian per Area:
 - **Core Principles**: ✅ 100% - Sesuai sempurna
@@ -238,7 +238,7 @@ Sistem ARSA v3.0 sudah sangat sesuai dengan konteks dan prinsip inti yang diteta
 ❌ Sistem pendampingan - TIDAK ADA ✅
 ```
 
-Sistem ARSA murni fokus pada:
+Sistem NovaDex murni fokus pada:
 - Identitas digital
 - Katalog publik
 - Visibilitas search
@@ -458,7 +458,7 @@ Sistem ARSA murni fokus pada:
 
 ## ✅ KESIMPULAN
 
-### Sistem ARSA v3.0 SANGAT SESUAI dengan konteks yang diberikan.
+### Sistem NovaDex v3.0 SANGAT SESUAI dengan konteks yang diberikan.
 
 **Kekuatan:**
 - ✅ Prinsip inti dipatuhi 100%

@@ -1,4 +1,4 @@
-# ARSA Enhancement v3.0 - Implementation Summary
+# NovaDex Enhancement v3.0 - Implementation Summary
 
 **Date:** 2026-02-07  
 **Session:** Task Update & Implementation  
@@ -98,7 +98,7 @@
 - ✅ Address display if available
 - ✅ Fallback message if location not set
 - ✅ Responsive iframe design
-- ✅ Proper styling with ARSA theme
+- ✅ Proper styling with NovaDex theme
 
 **User Benefits:**
 - Easy location finding
@@ -367,9 +367,9 @@ Tasks:
 
 ### Chart.js Integration
 - Using CDN for easy updates
-- Dark theme configuration for ARSA design
+- Dark theme configuration for NovaDex design
 - Responsive charts with maintainAspectRatio: false
-- Color scheme matches ARSA brand (gold, green, red)
+- Color scheme matches NovaDex brand (gold, green, red)
 
 ### Related UMKM Logic
 - Smart query: same category first (max 3)

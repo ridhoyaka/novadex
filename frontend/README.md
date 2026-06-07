@@ -1,6 +1,6 @@
-# ARSA Frontend Prototype
+# NovaDex Frontend Prototype
 
-Prototype frontend statis untuk demo ARSA Platform - Fondasi Digital UMKM Salatiga.
+Prototype frontend statis untuk demo NovaDex Platform - Fondasi Digital UMKM Salatiga.
 
 ## 📁 Struktur File
 
@@ -147,4 +147,4 @@ Untuk pertanyaan atau bantuan:
 ---
 
 **Developed by Solvia**  
-© 2026 ARSA Platform
+© 2026 NovaDex Platform

@@ -1,8 +1,8 @@
-# Implementation Plan: ARSA UMKM Catalog Platform
+# Implementation Plan: NovaDex UMKM Catalog Platform
 
 ## Overview
 
-This implementation plan breaks down the ARSA platform into incremental, testable steps. The approach follows Laravel 11 best practices with a focus on building core functionality first, then layering on features progressively. Each major section includes property-based tests to validate correctness properties from the design document.
+This implementation plan breaks down the NovaDex platform into incremental, testable steps. The approach follows Laravel 11 best practices with a focus on building core functionality first, then layering on features progressively. Each major section includes property-based tests to validate correctness properties from the design document.
 
 The implementation follows this sequence:
 1. Project setup and database foundation
@@ -93,7 +93,7 @@ The implementation follows this sequence:
     - _Requirements: 11.5, 14.1_
   
   - [x] 4.3 Customize authentication views
-    - Update login, register, and password reset views with ARSA branding
+    - Update login, register, and password reset views with NovaDex branding
     - Apply Tailwind CSS styling
     - _Requirements: 5.1, 5.2, 5.3_
   
@@ -413,7 +413,7 @@ The implementation follows this sequence:
     - Create 404 error page with helpful navigation
     - Create 403 error page with role-specific messaging
     - Create 500 error page with error reference ID
-    - Style error pages consistently with ARSA branding
+    - Style error pages consistently with NovaDex branding
     - _Requirements: Error handling strategy_
   
   - [ ] 14.2 Implement global exception handling

@@ -1,4 +1,4 @@
-# Changelog - ARSA UMKM Catalog Platform
+# Changelog - NovaDex UMKM Catalog Platform
 
 ## [2.0.0] - 2026-02-06
 
@@ -210,4 +210,4 @@ Planned for next version:
 
 ## License
 
-Proprietary - ARSA Platform
+Proprietary - NovaDex Platform

@@ -23,8 +23,8 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-6 lg:py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             @if(session('success'))
             <div class="mb-4 bg-gold-900/20 border border-gold-500 text-gold-300 px-4 py-3 rounded-lg">
                 {{ session('success') }}
@@ -38,7 +38,7 @@
             @endif
 
             <!-- Filters -->
-            <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-6 mb-6">
+            <div class="bg-arsa-900 border border-arsa-800 rounded-lg p-4 sm:p-6 mb-6">
                 <form method="GET" action="{{ route('admin.umkm.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <!-- Search -->
                     <div>
@@ -86,11 +86,11 @@
                         </select>
                     </div>
 
-                    <div class="md:col-span-4 flex gap-3">
+                    <div class="md:col-span-4 flex flex-col sm:flex-row gap-3">
                         <button type="submit" class="bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-6 py-3 rounded-lg hover:from-gold-600 hover:to-gold-700 transition-all">
                             TERAPKAN FILTER
                         </button>
-                        <a href="{{ route('admin.umkm.index') }}" class="bg-arsa-800 text-white font-bold px-6 py-3 rounded-lg border-2 border-arsa-700 hover:border-gold-500 transition-all">
+                        <a href="{{ route('admin.umkm.index') }}" class="text-center bg-arsa-800 text-white font-bold px-6 py-3 rounded-lg border-2 border-arsa-700 hover:border-gold-500 transition-all">
                             RESET
                         </a>
                     </div>
@@ -177,8 +177,27 @@
                                                 @endif
                                             </button>
                                         </form>
-                                        
-                                        <!-- Note: Delete button removed - only UMKM owners can delete their profiles -->
+
+                                        @if(auth()->user()->isSuperAdmin())
+                                        <a href="{{ route('superadmin.umkm.edit', $umkm) }}"
+                                           class="p-2 bg-gold-500/10 text-gold-400 rounded-lg hover:bg-gold-500/20 transition-all"
+                                           title="Edit sebagai Super Admin">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                            </svg>
+                                        </a>
+                                        <form method="POST" action="{{ route('superadmin.umkm.destroy', $umkm) }}" class="inline" onsubmit="return confirm('Yakin hapus UMKM ini? Tindakan ini tidak dapat dibatalkan.')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="p-2 bg-red-500/10 text-red-400 rounded-lg hover:bg-red-500/20 transition-all"
+                                                    title="Hapus sebagai Super Admin">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>

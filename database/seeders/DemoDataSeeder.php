@@ -24,6 +24,9 @@ class DemoDataSeeder extends Seeder
                 'category' => 'Makanan & Minuman',
                 'description' => 'Warung makan tradisional dengan menu masakan Jawa yang lezat. Menyediakan nasi goreng, soto, dan berbagai lauk pauk.',
                 'whatsapp' => '081234567890',
+                'latitude' => -7.3266,
+                'longitude' => 110.5008,
+                'address' => 'Argomulyo, Salatiga',
             ],
             [
                 'name' => 'Batik Salatiga Indah',
@@ -31,6 +34,9 @@ class DemoDataSeeder extends Seeder
                 'category' => 'Fashion & Pakaian',
                 'description' => 'Produsen dan penjual batik khas Salatiga dengan motif tradisional dan modern. Melayani pemesanan seragam batik.',
                 'whatsapp' => '081234567891',
+                'latitude' => -7.3318,
+                'longitude' => 110.5074,
+                'address' => 'Tingkir, Salatiga',
             ],
             [
                 'name' => 'Kerajinan Bambu Kreatif',
@@ -38,6 +44,9 @@ class DemoDataSeeder extends Seeder
                 'category' => 'Kerajinan Tangan',
                 'description' => 'Membuat berbagai kerajinan dari bambu seperti keranjang, lampu hias, dan furniture. Produk ramah lingkungan.',
                 'whatsapp' => '081234567892',
+                'latitude' => -7.3189,
+                'longitude' => 110.5145,
+                'address' => 'Sidorejo, Salatiga',
             ],
             [
                 'name' => 'Jasa Desain Grafis Digital',
@@ -45,6 +54,9 @@ class DemoDataSeeder extends Seeder
                 'category' => 'Teknologi & Digital',
                 'description' => 'Menyediakan jasa desain grafis, logo, banner, dan konten media sosial untuk UMKM dan bisnis.',
                 'whatsapp' => '081234567893',
+                'latitude' => -7.3389,
+                'longitude' => 110.4924,
+                'address' => 'Sidomukti, Salatiga',
             ],
             [
                 'name' => 'Salon Cantik Permata',
@@ -52,6 +64,9 @@ class DemoDataSeeder extends Seeder
                 'category' => 'Kesehatan & Kecantikan',
                 'description' => 'Salon kecantikan lengkap dengan layanan potong rambut, creambath, facial, dan perawatan kuku.',
                 'whatsapp' => '081234567894',
+                'latitude' => -7.3231,
+                'longitude' => 110.4929,
+                'address' => 'Argomulyo, Salatiga',
             ],
         ];
         
@@ -74,14 +89,17 @@ class DemoDataSeeder extends Seeder
                 'kecamatan_id' => $district->id,
                 'deskripsi' => $data['description'],
                 'whatsapp' => $data['whatsapp'],
+                'latitude' => $data['latitude'],
+                'longitude' => $data['longitude'],
+                'alamat_lengkap' => $data['address'],
                 'is_published' => true,
             ]);
         }
         
         // Create admin user
         User::create([
-            'name' => 'Admin ARSA',
-            'email' => 'admin@arsa.com',
+            'name' => 'Admin NovaDex',
+            'email' => 'admin@novadex.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
         ]);
@@ -89,7 +107,7 @@ class DemoDataSeeder extends Seeder
         // Create super admin user
         User::create([
             'name' => 'Super Admin',
-            'email' => 'superadmin@arsa.com',
+            'email' => 'superadmin@novadex.com',
             'password' => Hash::make('password'),
             'role' => 'super_admin',
         ]);

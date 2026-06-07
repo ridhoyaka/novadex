@@ -10,12 +10,18 @@ class RoleOrMiddleware
 {
     public function handle(Request $request, Closure $next, string ...$roles): Response
     {
-        if (!$request->user()) {
+        $user = $request->user();
+
+        if (!$user) {
             abort(403, 'Unauthorized action.');
         }
 
+        if ($user->isSuperAdmin()) {
+            return $next($request);
+        }
+
         foreach ($roles as $role) {
-            if ($request->user()->role->value === $role) {
+            if ($user->role->value === $role) {
                 return $next($request);
             }
         }

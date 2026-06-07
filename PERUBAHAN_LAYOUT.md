@@ -7,7 +7,7 @@ Layout aplikasi telah diubah dari **top navigation** menjadi **sidebar horizonta
 ## Fitur Layout Baru
 
 ### 1. Sidebar Kiri (Width: 256px)
-- **Logo ARSA** di bagian atas
+- **Logo NovaDex** di bagian atas
 - **Menu navigasi** dengan icon dan label
 - **Active state** dengan background highlight dan warna gold
 - **Hover effect** yang smooth
@@ -86,8 +86,8 @@ Semua halaman publik yang menggunakan `<x-guest-layout>`:
 ## Testing
 
 Untuk melihat layout baru:
-1. Login sebagai Super Admin: `superadmin@arsa.com` / `password`
-2. Login sebagai Admin: `admin@arsa.com` / `password`
+1. Login sebagai Super Admin: `superadmin@novadex.com` / `password`
+2. Login sebagai Admin: `admin@novadex.com` / `password`
 3. Login sebagai UMKM: `busiti@example.com` / `password`
 
 Setiap role akan melihat sidebar dengan menu yang sesuai dengan hak akses mereka.

@@ -1,6 +1,6 @@
-# Panduan Lengkap untuk UMKM - Platform ARSA
+# Panduan Lengkap untuk UMKM - Platform NovaDex
 
-Selamat datang di Platform ARSA! Panduan ini akan membantu Anda melengkapi profil UMKM dan memaksimalkan visibilitas usaha Anda.
+Selamat datang di Platform NovaDex! Panduan ini akan membantu Anda melengkapi profil UMKM dan memaksimalkan visibilitas usaha Anda.
 
 ## Daftar Isi
 1. [Cara Melengkapi Profil](#cara-melengkapi-profil)
@@ -14,7 +14,7 @@ Selamat datang di Platform ARSA! Panduan ini akan membantu Anda melengkapi profi
 ## Cara Melengkapi Profil
 
 ### Langkah 1: Login ke Dashboard
-1. Buka website ARSA
+1. Buka website NovaDex
 2. Klik tombol **Login** di pojok kanan atas
 3. Masukkan email dan password Anda
 4. Klik **Masuk**
@@ -233,7 +233,7 @@ Terima pembayaran tunai dan transfer.
 
 ## Indikator Kelengkapan Profil
 
-Platform ARSA menggunakan sistem skor untuk mengukur kelengkapan profil:
+Platform NovaDex menggunakan sistem skor untuk mengukur kelengkapan profil:
 
 ### 🔴 Profil Dasar (0-49%)
 - Profil masih sangat minim
@@ -290,4 +290,4 @@ Jika Anda mengalami kesulitan atau memiliki pertanyaan:
 **Terakhir diperbarui:** Februari 2026  
 **Versi:** 1.0
 
-Selamat menggunakan Platform ARSA! 🎉
+Selamat menggunakan Platform NovaDex! 🎉

@@ -1,4 +1,4 @@
-# Status Final - ARSA Platform v2.0
+# Status Final - NovaDex Platform v2.0
 
 ## ✅ Semua Fitur Selesai 100%
 
@@ -57,7 +57,7 @@
 ┌─────────────────────────────────────────┐
 │  Sidebar (256px)    │  Main Content     │
 │  ┌──────────────┐   │  ┌─────────────┐  │
-│  │ Logo ARSA    │   │  │ Top Bar     │  │
+│  │ Logo NovaDex    │   │  │ Top Bar     │  │
 │  ├──────────────┤   │  ├─────────────┤  │
 │  │ Navigation   │   │  │             │  │
 │  │ - Dashboard  │   │  │   Content   │  │
@@ -86,13 +86,13 @@
 
 ### Super Admin
 ```
-Email: superadmin@arsa.com
+Email: superadmin@novadex.com
 Password: password
 ```
 
 ### Admin
 ```
-Email: admin@arsa.com
+Email: admin@novadex.com
 Password: password
 ```
 
@@ -215,7 +215,7 @@ Password: password
 
 **STATUS: PRODUCTION READY ✅**
 
-Semua fitur core sudah selesai 100% dan siap untuk production. Platform ARSA sudah memiliki:
+Semua fitur core sudah selesai 100% dan siap untuk production. Platform NovaDex sudah memiliki:
 - ✅ 3 role lengkap (UMKM, Admin, Super Admin)
 - ✅ Modern UI dengan sidebar layout
 - ✅ Privacy protection
@@ -232,7 +232,7 @@ Semua fitur core sudah selesai 100% dan siap untuk production. Platform ARSA sud
 ## 👥 Team
 
 - **Developer:** AI Assistant
-- **Project:** ARSA UMKM Catalog Platform
+- **Project:** NovaDex UMKM Catalog Platform
 - **Client:** Salatiga City / Solvia
 
 ## 📞 Support
@@ -244,4 +244,4 @@ Untuk pertanyaan atau issue:
 
 ---
 
-**🎊 Congratulations! Platform ARSA v2.0 is ready to launch! 🚀**
+**🎊 Congratulations! Platform NovaDex v2.0 is ready to launch! 🚀**

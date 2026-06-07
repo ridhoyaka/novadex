@@ -1,4 +1,4 @@
-# LAPORAN PENGGUNAAN WEBSITE ARSA
+# LAPORAN PENGGUNAAN WEBSITE NovaDex
 ## Platform Katalog Digital UMKM Salatiga
 
 **Tanggal Laporan:** 6 Februari 2026  
@@ -9,7 +9,7 @@
 
 ## 📊 RINGKASAN EKSEKUTIF
 
-ARSA (Platform Digital UMKM Salatiga) adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyarakat Salatiga. Website telah berhasil dibangun dengan teknologi Laravel 11, Tailwind CSS, dan Alpine.js dengan tema dark/black yang elegan dan aksen gold.
+NovaDex (Platform Digital UMKM Salatiga) adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyarakat Salatiga. Website telah berhasil dibangun dengan teknologi Laravel 11, Tailwind CSS, dan Alpine.js dengan tema dark/black yang elegan dan aksen gold.
 
 **Status Keseluruhan:** ✅ 81.7% Complete (95% Core Features Ready)
 
@@ -25,7 +25,7 @@ ARSA (Platform Digital UMKM Salatiga) adalah platform katalog digital yang mengh
   - Geometric patterns untuk visual interest
 
 - **Branding**
-  - Logo ARSA dengan gradient gold
+  - Logo NovaDex dengan gradient gold
   - Tagline: "Platform Digital UMKM" (bukan arsitektur)
   - Konsistensi visual di semua halaman
 
@@ -80,7 +80,7 @@ ARSA (Platform Digital UMKM Salatiga) adalah platform katalog digital yang mengh
 - Hero section dengan geometric background
 - Featured categories (8 kategori)
 - Newest UMKM showcase (6 UMKM terbaru)
-- About ARSA section
+- About NovaDex section
 - Responsive navigation
 - Footer dengan informasi lengkap
 
@@ -482,7 +482,7 @@ ARSA (Platform Digital UMKM Salatiga) adalah platform katalog digital yang mengh
 
 ## 📈 KESIMPULAN
 
-**ARSA Platform** telah berhasil dibangun dengan **81.7% fitur complete** dan **95% core functionality ready**. Website siap untuk **production launch** dengan fitur-fitur essential yang sudah berfungsi dengan baik:
+**NovaDex Platform** telah berhasil dibangun dengan **81.7% fitur complete** dan **95% core functionality ready**. Website siap untuk **production launch** dengan fitur-fitur essential yang sudah berfungsi dengan baik:
 
 ### ✅ KEKUATAN
 - Desain modern dan elegan (dark theme + gold accent)

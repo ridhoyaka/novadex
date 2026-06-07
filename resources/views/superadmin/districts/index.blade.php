@@ -23,15 +23,25 @@
             <!-- Add District Form -->
             <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-4 sm:p-6 mb-6">
                 <h3 class="text-lg font-bold text-white mb-4">Tambah Kecamatan Baru</h3>
-                <form method="POST" action="{{ route('superadmin.districts.store') }}" class="flex flex-col sm:flex-row gap-3">
+                <form method="POST" action="{{ route('superadmin.districts.store') }}" class="grid gap-3 sm:grid-cols-[1.4fr_0.9fr_0.9fr_auto]">
                     @csrf
                     <input type="text" name="nama_kecamatan" placeholder="Nama Kecamatan" required 
                            class="flex-1 px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                    <input type="number" step="any" name="latitude" placeholder="Latitude"
+                           class="px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                    <input type="number" step="any" name="longitude" placeholder="Longitude"
+                           class="px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
                     <button type="submit" class="bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-6 py-3 rounded-lg hover:from-gold-600 hover:to-gold-700 transition-all whitespace-nowrap">
                         + Tambah
                     </button>
                 </form>
                 @error('nama_kecamatan')
+                <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
+                @enderror
+                @error('latitude')
+                <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
+                @enderror
+                @error('longitude')
                 <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
                 @enderror
             </div>
@@ -58,7 +68,7 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex justify-end gap-2">
-                                    <button onclick="editDistrict({{ $district->id }}, '{{ addslashes($district->nama_kecamatan) }}')" 
+                                    <button onclick="editDistrict({{ $district->id }}, '{{ addslashes($district->nama_kecamatan) }}', '{{ $district->latitude }}', '{{ $district->longitude }}')" 
                                             class="p-2 bg-blue-500/10 text-blue-400 rounded-lg hover:bg-blue-500/20 transition-all" title="Edit">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
@@ -93,7 +103,7 @@
                             <p class="text-gray-400 text-sm">{{ $district->umkm_profiles_count }} UMKM</p>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="editDistrict({{ $district->id }}, '{{ addslashes($district->nama_kecamatan) }}')" 
+                            <button onclick="editDistrict({{ $district->id }}, '{{ addslashes($district->nama_kecamatan) }}', '{{ $district->latitude }}', '{{ $district->longitude }}')" 
                                     class="p-2 bg-blue-500/10 text-blue-400 rounded-lg hover:bg-blue-500/20 transition-all">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
@@ -128,6 +138,12 @@
                 @method('PUT')
                 <input type="text" id="editNama" name="nama_kecamatan" required 
                        class="w-full px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all mb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    <input type="number" step="any" id="editLatitude" name="latitude" placeholder="Latitude"
+                           class="w-full px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                    <input type="number" step="any" id="editLongitude" name="longitude" placeholder="Longitude"
+                           class="w-full px-4 py-3 bg-arsa-800 border-2 border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                </div>
                 <div class="flex gap-3">
                     <button type="submit" class="flex-1 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-6 py-3 rounded-lg hover:from-gold-600 hover:to-gold-700 transition-all">
                         Simpan
@@ -141,9 +157,11 @@
     </div>
 
     <script>
-        function editDistrict(id, nama) {
+        function editDistrict(id, nama, latitude, longitude) {
             document.getElementById('editForm').action = `/superadmin/districts/${id}`;
             document.getElementById('editNama').value = nama;
+            document.getElementById('editLatitude').value = latitude || '';
+            document.getElementById('editLongitude').value = longitude || '';
             document.getElementById('editModal').classList.remove('hidden');
         }
 

@@ -1,4 +1,4 @@
-# ARSA Enhancement v3.0 - Remaining Tasks Analysis
+# NovaDex Enhancement v3.0 - Remaining Tasks Analysis
 
 **Date:** 2026-02-07  
 **Current Progress:** ~85%  

@@ -1,4 +1,4 @@
-# ARSA Enhancement v3.0 - Progress Report
+# NovaDex Enhancement v3.0 - Progress Report
 
 **Date:** 2026-02-07  
 **Status:** Phase 1-2 Complete, Phase 3-4 Partial
@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-Implementasi ARSA Enhancement v3.0 telah mencapai progress signifikan dengan penyelesaian Phase 1 dan 2 secara lengkap. Core services, database schema, dan dashboard UMKM telah selesai diimplementasi dan berfungsi dengan baik.
+Implementasi NovaDex Enhancement v3.0 telah mencapai progress signifikan dengan penyelesaian Phase 1 dan 2 secara lengkap. Core services, database schema, dan dashboard UMKM telah selesai diimplementasi dan berfungsi dengan baik.
 
 **Overall Progress:** ~60% Complete
 
@@ -34,7 +34,7 @@ Implementasi ARSA Enhancement v3.0 telah mencapai progress signifikan dengan pen
 
 #### 3. SeoService ✅
 - ✅ `generateMetadata()` - Generate SEO title & description
-- ✅ `generateTitle()` - Format: "Nama UMKM - Kategori di Kecamatan | ARSA"
+- ✅ `generateTitle()` - Format: "Nama UMKM - Kategori di Kecamatan | NovaDex"
 - ✅ `generateDescription()` - Limit 155 karakter untuk SEO
 - ✅ `generateStructuredData()` - JSON-LD schema.org LocalBusiness
 - ✅ `generateAltText()` - Alt text untuk logo dan foto

@@ -26,7 +26,7 @@ test('auto generates SEO metadata when profile is created', function () {
     
     expect($profile->seo_title)->not->toBeNull();
     expect($profile->seo_title)->toContain('Warung Makan Sederhana');
-    expect($profile->seo_title)->toContain('ARSA');
+    expect($profile->seo_title)->toContain('NovaDex');
     
     expect($profile->seo_description)->not->toBeNull();
     expect($profile->seo_description)->toContain('Warung makan');

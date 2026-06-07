@@ -18,7 +18,12 @@ class DistrictController extends Controller
     {
         $validated = $request->validate([
             'nama_kecamatan' => 'required|string|max:100|unique:districts',
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
         ]);
+
+        $validated['latitude'] ??= -7.3305;
+        $validated['longitude'] ??= 110.5083;
 
         District::create($validated);
 
@@ -29,7 +34,12 @@ class DistrictController extends Controller
     {
         $validated = $request->validate([
             'nama_kecamatan' => 'required|string|max:100|unique:districts,nama_kecamatan,' . $district->id,
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
         ]);
+
+        $validated['latitude'] ??= $district->latitude ?? -7.3305;
+        $validated['longitude'] ??= $district->longitude ?? 110.5083;
 
         $district->update($validated);
 

@@ -1,4 +1,4 @@
-# ARSA UMKM Catalog - Setup Documentation
+# NovaDex UMKM Catalog - Setup Documentation
 
 ## Task 1: Initialize Laravel 11 Project ✅
 
@@ -21,7 +21,7 @@
 
 #### 3. Tailwind CSS Setup ✅
 - **Version**: ^3.4.0
-- **Configuration**: `tailwind.config.js` created with ARSA color scheme
+- **Configuration**: `tailwind.config.js` created with NovaDex color scheme
   - `arsa-green`: Custom green palette (50-900)
   - `arsa-blue`: Custom blue palette (50-900)
 - **Fonts**: Inter and Poppins configured
@@ -273,7 +273,7 @@ php artisan db:seed
 
 | Setting | Value |
 |---------|-------|
-| App Name | ARSA UMKM Catalog |
+| App Name | NovaDex UMKM Catalog |
 | Environment | local |
 | Debug Mode | true |
 | URL | http://localhost |

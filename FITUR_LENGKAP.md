@@ -1,4 +1,4 @@
-# DOKUMENTASI FITUR LENGKAP ARSA
+# DOKUMENTASI FITUR LENGKAP NovaDex
 ## Platform Katalog Digital UMKM Salatiga
 
 **Versi:** 1.0  
@@ -9,7 +9,7 @@
 
 ## 🎯 RINGKASAN
 
-ARSA adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyarakat Salatiga. Platform ini menyediakan:
+NovaDex adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyarakat Salatiga. Platform ini menyediakan:
 - Katalog UMKM yang mudah dicari dan difilter
 - Peta interaktif lokasi UMKM
 - Dashboard untuk pemilik UMKM mengelola profil
@@ -27,7 +27,7 @@ ARSA adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyar
 - Forgot password link
 - Elegant dark theme design
 - **Credentials:**
-  - Admin: `admin@arsa.com` / `password`
+  - Admin: `admin@novadex.com` / `password`
   - UMKM: `busiti@example.com` / `password`
 
 ### ✅ Register
@@ -60,10 +60,10 @@ ARSA adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyar
 
 ### ✅ Landing Page (/)
 **Fitur:**
-- Hero section dengan branding ARSA
+- Hero section dengan branding NovaDex
 - Featured categories (8 kategori)
 - Newest UMKM showcase (6 terbaru)
-- About ARSA section
+- About NovaDex section
 - Responsive navigation
 - Footer informatif
 
@@ -467,7 +467,7 @@ ARSA adalah platform katalog digital yang menghubungkan UMKM lokal dengan masyar
 
 ### Environment
 ```env
-APP_NAME=ARSA
+APP_NAME=NovaDex
 APP_URL=http://127.0.0.1:8000
 DB_DATABASE=arsa_umkm_catalog
 ```
@@ -486,7 +486,7 @@ php artisan serve
 ```
 
 ### Demo Credentials
-- **Admin:** admin@arsa.com / password
+- **Admin:** admin@novadex.com / password
 - **UMKM:** busiti@example.com / password
 
 ---
@@ -547,13 +547,13 @@ php artisan serve
 
 ## 📞 SUPPORT
 
-**Platform:** ARSA - Platform Digital UMKM Salatiga  
+**Platform:** NovaDex - Platform Digital UMKM Salatiga  
 **Version:** 1.0  
 **Status:** Production Ready  
 **Progress:** 85% Complete
 
 **Contact:**
-- Email: admin@arsa.com
+- Email: admin@novadex.com
 - Website: http://127.0.0.1:8000
 
 ---

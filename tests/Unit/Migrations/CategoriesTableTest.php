@@ -1,38 +1,46 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
+namespace Tests\Unit\Migrations;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
-test('categories table has correct columns', function () {
-    expect(Schema::hasTable('categories'))->toBeTrue();
-    
-    $columns = Schema::getColumnListing('categories');
-    
-    expect($columns)->toContain('id');
-    expect($columns)->toContain('nama_kategori');
-    expect($columns)->toContain('slug');
-    expect($columns)->toContain('icon');
-    expect($columns)->toContain('created_at');
-    expect($columns)->toContain('updated_at');
-});
+class CategoriesTableTest extends TestCase
+{
+    use RefreshDatabase;
 
-test('categories table slug column has unique constraint', function () {
-    // Create a category with a slug
-    DB::table('categories')->insert([
-        'nama_kategori' => 'Test Category',
-        'slug' => 'test-category',
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-    
-    // Attempt to insert another category with the same slug
-    // This should throw an exception due to unique constraint
-    expect(function () {
+    public function test_categories_table_has_correct_columns(): void
+    {
+        $this->assertTrue(Schema::hasTable('categories'));
+
+        $columns = Schema::getColumnListing('categories');
+
+        $this->assertContains('id', $columns);
+        $this->assertContains('nama_kategori', $columns);
+        $this->assertContains('slug', $columns);
+        $this->assertContains('icon', $columns);
+        $this->assertContains('created_at', $columns);
+        $this->assertContains('updated_at', $columns);
+    }
+
+    public function test_categories_table_slug_column_has_unique_constraint(): void
+    {
+        DB::table('categories')->insert([
+            'nama_kategori' => 'Test Category',
+            'slug' => 'test-category',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->expectException(\Exception::class);
+
         DB::table('categories')->insert([
             'nama_kategori' => 'Another Category',
             'slug' => 'test-category',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-    })->toThrow(Exception::class);
-});
+    }
+}

@@ -5,7 +5,7 @@
 **Task:** 8.4 Submit to search engines  
 **Status:** ✅ Completed  
 **Date:** 2026-02-07  
-**Completed By:** ARSA Development Team
+**Completed By:** NovaDex Development Team
 
 ---
 
@@ -284,8 +284,8 @@ Track these metrics to measure success:
 - **Schema.org**: https://schema.org/
 
 ### Internal Support
-- **Technical Issues**: Contact ARSA Development Team
-- **Content Issues**: Contact ARSA Admin Team
+- **Technical Issues**: Contact NovaDex Development Team
+- **Content Issues**: Contact NovaDex Admin Team
 - **Strategic Questions**: Contact SEO Manager
 
 ---

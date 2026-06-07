@@ -16,22 +16,32 @@ class DistrictController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_kecamatan' => 'required|string|max:255|unique:districts,nama_kecamatan',
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
         ]);
 
-        District::create($request->only('nama_kecamatan'));
+        $validated['latitude'] ??= -7.3305;
+        $validated['longitude'] ??= 110.5083;
+
+        District::create($validated);
 
         return redirect()->route('admin.districts.index')->with('success', 'Kecamatan berhasil ditambahkan');
     }
 
     public function update(Request $request, District $district)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_kecamatan' => 'required|string|max:255|unique:districts,nama_kecamatan,' . $district->id,
+            'latitude' => 'nullable|numeric|between:-90,90',
+            'longitude' => 'nullable|numeric|between:-180,180',
         ]);
 
-        $district->update($request->only('nama_kecamatan'));
+        $validated['latitude'] ??= $district->latitude ?? -7.3305;
+        $validated['longitude'] ??= $district->longitude ?? 110.5083;
+
+        $district->update($validated);
 
         return redirect()->route('admin.districts.index')->with('success', 'Kecamatan berhasil diperbarui');
     }
