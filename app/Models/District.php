@@ -24,6 +24,14 @@ class District extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        static::creating(function (District $district) {
+            $district->latitude ??= -7.3305;
+            $district->longitude ??= 110.5083;
+        });
+    }
+
     public function umkmProfiles(): HasMany
     {
         return $this->hasMany(UmkmProfile::class, 'kecamatan_id');

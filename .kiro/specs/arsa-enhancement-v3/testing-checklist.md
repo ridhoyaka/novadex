@@ -1,4 +1,4 @@
-# ARSA v3.0 Dashboard Copy - Quick Testing Checklist
+# NovaDex v3.0 Dashboard Copy - Quick Testing Checklist
 
 **Purpose:** Quick reference for testing dashboard copy with UMKM users  
 **Use this during testing sessions**
@@ -100,7 +100,7 @@
 - Age range: ☐ 20-30 ☐ 30-40 ☐ 40-50 ☐ 50-60 ☐ 60+
 - Business type: ________________
 - Digital literacy: ☐ Beginner ☐ Intermediate ☐ Advanced
-- ARSA experience: ☐ New ☐ Existing
+- NovaDex experience: ☐ New ☐ Existing
 
 ### Comprehension Scores
 - Profile completion: ☐ Clear ☐ Somewhat ☐ Unclear

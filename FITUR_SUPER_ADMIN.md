@@ -1,10 +1,10 @@
-# Fitur Super Admin - ARSA Platform
+# Fitur Super Admin - NovaDex Platform
 
 ## Overview
-Super Admin memiliki akses penuh ke seluruh sistem ARSA, termasuk semua fitur admin ditambah manajemen user dan master data.
+Super Admin memiliki akses penuh ke seluruh sistem NovaDex, termasuk semua fitur admin ditambah manajemen user dan master data.
 
 ## Credentials
-- Email: `superadmin@arsa.com`
+- Email: `superadmin@novadex.com`
 - Password: `password`
 
 ## Fitur Lengkap Super Admin
@@ -140,7 +140,7 @@ Semua aksi super admin dicatat di `activity_logs` table:
 ### Error 403 Unauthorized
 - Pastikan login sebagai super admin
 - Clear cache: `php artisan optimize:clear`
-- Cek role di database: `SELECT role FROM users WHERE email = 'superadmin@arsa.com'`
+- Cek role di database: `SELECT role FROM users WHERE email = 'superadmin@novadex.com'`
 
 ### Menu Tidak Muncul
 - Clear view cache: `php artisan view:clear`

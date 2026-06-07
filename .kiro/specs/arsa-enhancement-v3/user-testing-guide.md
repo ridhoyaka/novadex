@@ -1,4 +1,4 @@
-# ARSA Enhancement v3.0 - User Testing Guide
+# NovaDex Enhancement v3.0 - User Testing Guide
 ## Dashboard Copy Testing with Real UMKM Users
 
 **Purpose:** Validate that the UMKM dashboard copy is understandable, free of technical jargon, and motivating for real UMKM business owners.
@@ -33,7 +33,7 @@
   - 3-4 intermediate (comfortable with WhatsApp, social media)
   - 1-2 advanced (use multiple business apps)
 - Different business categories (food, crafts, services, retail)
-- Mix of new and existing ARSA users
+- Mix of new and existing NovaDex users
 
 **Recruitment:**
 - Contact through existing UMKM network
@@ -69,7 +69,7 @@ Create test accounts with different completion levels:
 ### Phase 1: Introduction (5 minutes)
 
 **Script:**
-> "Terima kasih sudah bersedia membantu kami. Hari ini kami ingin mendengar pendapat Anda tentang tampilan dashboard ARSA yang baru. Tidak ada jawaban benar atau salah - kami ingin tahu pengalaman Anda yang sebenarnya.
+> "Terima kasih sudah bersedia membantu kami. Hari ini kami ingin mendengar pendapat Anda tentang tampilan dashboard NovaDex yang baru. Tidak ada jawaban benar atau salah - kami ingin tahu pengalaman Anda yang sebenarnya.
 >
 > Anda boleh berbicara dengan bebas tentang apa yang Anda lihat, apa yang Anda pahami, dan apa yang membingungkan. Jika ada yang tidak jelas, itu bukan kesalahan Anda - itu berarti kami perlu memperbaiki desain kami.
 >
@@ -268,7 +268,7 @@ Create test accounts with different completion levels:
 - [ ] Age range
 - [ ] Business type
 - [ ] Digital literacy level
-- [ ] ARSA experience (new/existing)
+- [ ] NovaDex experience (new/existing)
 
 **Comprehension Scores:**
 - [ ] Profile completion concept: ☐ Clear ☐ Somewhat clear ☐ Unclear
@@ -501,7 +501,7 @@ Create test accounts with different completion levels:
 
 Saya, [Nama Peserta], dengan ini menyatakan:
 
-1. Saya bersedia berpartisipasi dalam uji coba dashboard ARSA
+1. Saya bersedia berpartisipasi dalam uji coba dashboard NovaDex
 2. Saya memahami bahwa sesi ini akan direkam untuk keperluan analisis
 3. Saya memahami bahwa identitas saya akan dijaga kerahasiaannya
 4. Saya bersedia memberikan feedback yang jujur
@@ -515,9 +515,9 @@ Tanggal: ________________
 ## Appendix B: Testing Script (Bahasa Indonesia)
 
 **Skrip Pembukaan:**
-"Selamat [pagi/siang/sore], Bapak/Ibu [Nama]. Terima kasih sudah meluangkan waktu untuk membantu kami hari ini. Perkenalkan, saya [Nama Tester] dari tim ARSA.
+"Selamat [pagi/siang/sore], Bapak/Ibu [Nama]. Terima kasih sudah meluangkan waktu untuk membantu kami hari ini. Perkenalkan, saya [Nama Tester] dari tim NovaDex.
 
-Hari ini kami ingin mendengar pendapat Anda tentang tampilan dashboard ARSA yang baru. Kami ingin memastikan bahwa dashboard ini mudah dipahami dan digunakan oleh pemilik UMKM seperti Bapak/Ibu.
+Hari ini kami ingin mendengar pendapat Anda tentang tampilan dashboard NovaDex yang baru. Kami ingin memastikan bahwa dashboard ini mudah dipahami dan digunakan oleh pemilik UMKM seperti Bapak/Ibu.
 
 Yang penting untuk diingat:
 - Tidak ada jawaban benar atau salah
@@ -528,7 +528,7 @@ Yang penting untuk diingat:
 Apakah Bapak/Ibu siap untuk memulai?"
 
 **Skrip Penutup:**
-"Terima kasih banyak atas waktu dan masukan Anda, Bapak/Ibu [Nama]. Feedback Anda sangat berharga untuk kami dalam memperbaiki ARSA agar lebih mudah digunakan oleh UMKM.
+"Terima kasih banyak atas waktu dan masukan Anda, Bapak/Ibu [Nama]. Feedback Anda sangat berharga untuk kami dalam memperbaiki NovaDex agar lebih mudah digunakan oleh UMKM.
 
 Sebagai tanda terima kasih, ini ada [voucher/produk] untuk Bapak/Ibu. Jika nanti ada pertanyaan atau saran tambahan, Bapak/Ibu bisa menghubungi kami di [kontak].
 

@@ -25,12 +25,12 @@ Route::middleware(['auth', 'role:umkm'])->prefix('umkm')->name('umkm.')->group(f
     Route::post('/profil/upload-logo', [\App\Http\Controllers\Umkm\ProfileController::class, 'uploadLogo'])->name('profile.upload-logo');
     Route::post('/profil/upload-photo', [\App\Http\Controllers\Umkm\ProfileController::class, 'uploadPhoto'])->name('profile.upload-photo');
     Route::delete('/profil/delete-photo', [\App\Http\Controllers\Umkm\ProfileController::class, 'deletePhoto'])->name('profile.delete-photo');
-    
+
     // Location management
     Route::post('/profil/location', [\App\Http\Controllers\Umkm\ProfileController::class, 'updateLocation'])->name('profile.location.update');
     Route::delete('/profil/location', [\App\Http\Controllers\Umkm\ProfileController::class, 'removeLocation'])->name('profile.location.remove');
     Route::post('/profil/geocode', [\App\Http\Controllers\Umkm\ProfileController::class, 'geocode'])->name('profile.geocode');
-    
+
     // Photo reordering
     Route::post('/profil/reorder-photos', [\App\Http\Controllers\Umkm\ProfileController::class, 'reorderPhotos'])->name('profile.reorder-photos');
 });
@@ -41,7 +41,7 @@ Route::get('/umkm/{slug}', [UmkmDetailController::class, 'show'])->name('umkm.sh
 // Admin Dashboard Routes (accessible by admin and super_admin)
 Route::middleware(['auth', 'role.any:admin,super_admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-    
+
     // UMKM Management (Read-Only + Offline Registration)
     Route::get('/umkm', [\App\Http\Controllers\Admin\UmkmController::class, 'index'])->name('umkm.index');
     Route::get('/umkm/create', [\App\Http\Controllers\Admin\UmkmController::class, 'create'])->name('umkm.create');
@@ -50,17 +50,17 @@ Route::middleware(['auth', 'role.any:admin,super_admin'])->prefix('admin')->name
     Route::get('/umkm/{umkm}', [\App\Http\Controllers\Admin\UmkmController::class, 'show'])->name('umkm.show');
     Route::post('/umkm/{umkm}/moderate-publish', [\App\Http\Controllers\Admin\UmkmController::class, 'moderatePublish'])->name('umkm.moderate-publish');
     // Note: Admin CANNOT edit or delete UMKM profiles - only UMKM owners can do that
-    
+
     // Content Monitoring
     Route::get('/content', [\App\Http\Controllers\Admin\ContentController::class, 'index'])->name('content.index');
     Route::get('/content/{profile}', [\App\Http\Controllers\Admin\ContentController::class, 'show'])->name('content.show');
     Route::get('/content-map', [\App\Http\Controllers\Admin\ContentController::class, 'map'])->name('content.map');
-    
+
     // Profile Flagging
     Route::post('/flags/{profile}', [\App\Http\Controllers\Admin\FlagController::class, 'store'])->name('flags.store');
     Route::patch('/flags/{flag}/resolve', [\App\Http\Controllers\Admin\FlagController::class, 'resolve'])->name('flags.resolve');
     Route::patch('/flags/{flag}/dismiss', [\App\Http\Controllers\Admin\FlagController::class, 'dismiss'])->name('flags.dismiss');
-    
+
     // Category Management
     Route::get('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('categories.index');
     Route::post('/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('categories.store');
@@ -71,7 +71,7 @@ Route::middleware(['auth', 'role.any:admin,super_admin'])->prefix('admin')->name
 // Super Admin Dashboard Routes (Full Access)
 Route::middleware(['auth', 'role:super_admin'])->prefix('superadmin')->name('superadmin.')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\DashboardController::class, 'index'])->name('dashboard');
-    
+
     // UMKM Management (Full CRUD)
     Route::get('/umkm', [\App\Http\Controllers\SuperAdmin\UmkmController::class, 'index'])->name('umkm.index');
     Route::get('/umkm/export', [\App\Http\Controllers\SuperAdmin\UmkmController::class, 'export'])->name('umkm.export');
@@ -80,7 +80,7 @@ Route::middleware(['auth', 'role:super_admin'])->prefix('superadmin')->name('sup
     Route::put('/umkm/{umkm}', [\App\Http\Controllers\SuperAdmin\UmkmController::class, 'update'])->name('umkm.update');
     Route::delete('/umkm/{umkm}', [\App\Http\Controllers\SuperAdmin\UmkmController::class, 'destroy'])->name('umkm.destroy');
     Route::post('/umkm/{umkm}/toggle-publish', [\App\Http\Controllers\SuperAdmin\UmkmController::class, 'togglePublish'])->name('umkm.toggle-publish');
-    
+
     // User Management
     Route::get('/users', [\App\Http\Controllers\SuperAdmin\UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [\App\Http\Controllers\SuperAdmin\UserController::class, 'create'])->name('users.create');
@@ -88,13 +88,13 @@ Route::middleware(['auth', 'role:super_admin'])->prefix('superadmin')->name('sup
     Route::get('/users/{user}/edit', [\App\Http\Controllers\SuperAdmin\UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [\App\Http\Controllers\SuperAdmin\UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [\App\Http\Controllers\SuperAdmin\UserController::class, 'destroy'])->name('users.destroy');
-    
+
     // District Management (Full CRUD)
     Route::get('/districts', [\App\Http\Controllers\SuperAdmin\DistrictController::class, 'index'])->name('districts.index');
     Route::post('/districts', [\App\Http\Controllers\SuperAdmin\DistrictController::class, 'store'])->name('districts.store');
     Route::put('/districts/{district}', [\App\Http\Controllers\SuperAdmin\DistrictController::class, 'update'])->name('districts.update');
     Route::delete('/districts/{district}', [\App\Http\Controllers\SuperAdmin\DistrictController::class, 'destroy'])->name('districts.destroy');
-    
+
     // Category Management (Full CRUD)
     Route::get('/categories', [\App\Http\Controllers\SuperAdmin\CategoryController::class, 'index'])->name('categories.index');
     Route::post('/categories', [\App\Http\Controllers\SuperAdmin\CategoryController::class, 'store'])->name('categories.store');

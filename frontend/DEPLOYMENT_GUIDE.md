@@ -1,8 +1,8 @@
-# 🚀 ARSA Frontend - Panduan Deploy ke Hosting Free
+# 🚀 NovaDex Frontend - Panduan Deploy ke Hosting Free
 
 ## 📋 Quick Start
 
-Prototype frontend ARSA sudah siap di-deploy ke hosting free. Ikuti salah satu cara di bawah:
+Prototype frontend NovaDex sudah siap di-deploy ke hosting free. Ikuti salah satu cara di bawah:
 
 ---
 
@@ -240,4 +240,4 @@ Setelah deploy berhasil, Anda bisa:
 **Happy Deploying! 🚀**
 
 *Developed by Solvia*  
-*© 2026 ARSA Platform*
+*© 2026 NovaDex Platform*

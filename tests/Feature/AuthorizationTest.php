@@ -109,11 +109,11 @@ describe('Authorization Tests', function () {
             expect($response->status())->toBeIn([200, 500]);
         });
         
-        test('SuperAdmin cannot access UMKM dashboard', function () {
+        test('SuperAdmin can access UMKM routes through role bypass', function () {
             $superAdmin = User::factory()->superAdmin()->create();
             
             $response = $this->actingAs($superAdmin)->get(route('umkm.dashboard'));
-            $response->assertForbidden();
+            $response->assertRedirect(route('umkm.profile.edit'));
         });
     });
     

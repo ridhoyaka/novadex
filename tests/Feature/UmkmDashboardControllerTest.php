@@ -140,12 +140,12 @@ describe('UMKM Dashboard Controller', function () {
         $response->assertForbidden();
     });
     
-    test('super admin cannot access UMKM dashboard', function () {
+    test('super admin can access UMKM routes through role bypass', function () {
         $superAdmin = User::factory()->superAdmin()->create();
         
         $response = $this->actingAs($superAdmin)->get(route('umkm.dashboard'));
         
-        $response->assertForbidden();
+        $response->assertRedirect(route('umkm.profile.edit'));
     });
     
     test('guest cannot access UMKM dashboard', function () {

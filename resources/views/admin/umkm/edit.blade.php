@@ -10,7 +10,7 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-6 lg:py-10">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             @if(session('success'))
             <div class="mb-4 bg-gold-900/20 border border-gold-500 text-gold-300 px-4 py-3 rounded-lg">

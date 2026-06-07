@@ -29,7 +29,10 @@ class FlagController extends Controller
         ActivityLog::create([
             'user_id' => auth()->id(),
             'action' => 'flag_profile',
+            'model_type' => UmkmProfile::class,
+            'model_id' => $profile->id,
             'description' => "Flagged profile: {$profile->nama_usaha}",
+            'ip_address' => $request->ip(),
         ]);
         
         return back()->with('success', 'Profil berhasil ditandai untuk review');

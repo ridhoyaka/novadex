@@ -99,11 +99,11 @@ php artisan serve
 ### Default Credentials
 
 **Super Admin:**
-- Email: `superadmin@Novadex.com`
+- Email: `superadmin@novadex.com`
 - Password: `password`
 
 **Admin:**
-- Email: `admin@Novadex.com`
+- Email: `admin@novadex.com`
 - Password: `password`
 
 **UMKM (5 demo accounts):**
@@ -186,7 +186,7 @@ php artisan serve
 ```
 
 **Demo Credentials:**
-- **Admin:** admin@Novadex.com / password
+- **Admin:** admin@novadex.com / password
 - **UMKM:** busiti@example.com / password
 
 ---
@@ -376,7 +376,7 @@ Buka browser: `http://127.0.0.1:8000`
 ## 🔑 Demo Credentials
 
 ### Admin
-- **Email:** admin@Novadex.com
+- **Email:** admin@novadex.com
 - **Password:** password
 
 ### UMKM Owner
@@ -508,7 +508,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 Untuk pertanyaan dan dukungan:
-- **Email:** admin@Novadex.com
+- **Email:** admin@novadex.com
 - **Website:** http://127.0.0.1:8000
 - **Documentation:** [FITUR_LENGKAP.md](FITUR_LENGKAP.md)
 - **Report:** [LAPORAN_WEBSITE_Novadex.md](LAPORAN_WEBSITE_Novadex.md)

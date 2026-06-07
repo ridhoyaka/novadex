@@ -94,7 +94,10 @@ class UmkmController extends Controller
         \App\Models\ActivityLog::create([
             'user_id' => auth()->id(),
             'action' => 'superadmin_update_umkm',
+            'model_type' => UmkmProfile::class,
+            'model_id' => $umkm->id,
             'description' => "Super Admin updated UMKM: {$umkm->nama_usaha}",
+            'ip_address' => $request->ip(),
         ]);
 
         return redirect()->route('superadmin.umkm.show', $umkm)
@@ -112,7 +115,10 @@ class UmkmController extends Controller
         \App\Models\ActivityLog::create([
             'user_id' => auth()->id(),
             'action' => 'superadmin_delete_umkm',
+            'model_type' => UmkmProfile::class,
+            'model_id' => $umkm->id,
             'description' => "Super Admin deleted UMKM: {$namaUsaha}",
+            'ip_address' => request()->ip(),
         ]);
 
         $umkm->delete();
@@ -131,7 +137,10 @@ class UmkmController extends Controller
         \App\Models\ActivityLog::create([
             'user_id' => auth()->id(),
             'action' => 'superadmin_toggle_publish',
+            'model_type' => UmkmProfile::class,
+            'model_id' => $umkm->id,
             'description' => "Super Admin " . ($umkm->is_published ? 'published' : 'unpublished') . " UMKM: {$umkm->nama_usaha}",
+            'ip_address' => request()->ip(),
         ]);
 
         return redirect()->back()

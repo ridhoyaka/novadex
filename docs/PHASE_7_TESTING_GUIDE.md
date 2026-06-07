@@ -1,7 +1,7 @@
 # Phase 7: Testing & Documentation Guide
 
 ## Overview
-This document provides comprehensive testing instructions for ARSA Platform Enhancement v3.0. Follow these steps to ensure all features work correctly before deployment.
+This document provides comprehensive testing instructions for NovaDex Platform Enhancement v3.0. Follow these steps to ensure all features work correctly before deployment.
 
 ---
 

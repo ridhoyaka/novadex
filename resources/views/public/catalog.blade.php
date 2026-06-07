@@ -1,266 +1,193 @@
 <x-guest-layout>
-    <div class="bg-arsa-900 min-h-screen">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-            <!-- Header -->
-            <div class="text-center mb-12 sm:mb-16">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4">Katalog UMKM</h1>
-                <div class="w-20 h-1 bg-gold-500 mx-auto mb-6 rounded-full"></div>
-                <p class="text-base sm:text-lg text-gray-400">Temukan dan hubungi bisnis lokal pilihan Anda</p>
-                
-                <!-- View Toggle -->
-                <div class="mt-8 inline-flex items-center bg-arsa-800 border border-arsa-700 rounded-xl p-1">
-                    <button onclick="switchView('list')" id="listViewBtn" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 text-black font-bold rounded-lg text-sm transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
-                        </svg>
-                        List
-                    </button>
-                    <button onclick="switchView('map')" id="mapViewBtn" class="inline-flex items-center gap-2 px-5 py-2.5 text-gray-400 font-bold rounded-lg text-sm hover:text-white transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                        </svg>
-                        Peta
-                    </button>
-                </div>
-            </div>
+    <div class="min-h-screen bg-[#f6f2e8]">
+        <section class="border-b border-[#ddd5c6] bg-[#10130f] py-12 text-white sm:py-14">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[#d4a945]">Katalog UMKM</p>
+                        <h1 class="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">Cari usaha lokal dengan tampilan yang lebih rapi.</h1>
+                        <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">Filter nama usaha, kategori, dan kecamatan tanpa kehilangan konteks hasil.</p>
+                    </div>
 
-            <!-- List View Container -->
-            <div id="listView">
-            <!-- Filters -->
-            <form method="GET" class="bg-arsa-800 border border-arsa-800 p-6 sm:p-8 rounded-xl mb-12">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-bold text-gray-300 mb-2 tracking-wider">CARI NAMA USAHA</label>
-                        <input type="text" name="search" value="{{ $filters['search'] ?? '' }}" 
-                               placeholder="Ketik nama usaha atau deskripsi..." 
-                               class="w-full px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white placeholder-gray-500 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-300 mb-2 tracking-wider">KATEGORI</label>
-                        <select name="category" class="w-full px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
-                            <option value="">Semua Kategori</option>
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ ($filters['category'] ?? '') == $category->id ? 'selected' : '' }}>
-                                {{ $category->nama_kategori }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-300 mb-2 tracking-wider">KECAMATAN</label>
-                        <select name="district" class="w-full px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
-                            <option value="">Semua Kecamatan</option>
-                            @foreach($districts as $district)
-                            <option value="{{ $district->id }}" {{ ($filters['district'] ?? '') == $district->id ? 'selected' : '' }}>
-                                {{ $district->nama_kecamatan }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="mt-6 flex flex-col md:flex-row gap-3 items-start md:items-center justify-between">
-                    <div class="flex gap-3 w-full md:w-auto">
-                        <button type="submit" class="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-500 rounded-lg font-bold text-sm text-black hover:from-gold-600 hover:to-gold-700 transition-all shadow-sm">
-                            Terapkan Filter
+                    <div class="inline-flex w-full border border-white/10 bg-white/[0.06] p-1 sm:w-auto">
+                        <button onclick="switchView('list')" id="listViewBtn" class="inline-flex min-h-10 flex-1 items-center justify-center gap-2 bg-[#d4a945] px-4 text-sm font-semibold text-[#10130f] transition sm:flex-none">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                            </svg>
+                            List
                         </button>
-                        <a href="{{ route('umkm.index') }}" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-3 bg-arsa-800 border border-arsa-700 rounded-lg font-bold text-sm text-gray-300 hover:text-white hover:border-gold-500/50 transition-all text-center">
-                            Reset
-                        </a>
-                    </div>
-                    <div class="flex items-center gap-3 w-full md:w-auto">
-                        <label class="text-sm font-bold text-gray-300 tracking-wider whitespace-nowrap">URUTKAN:</label>
-                        <select name="sort" onchange="this.form.submit()" class="flex-1 md:flex-none px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
-                            <option value="newest" {{ ($filters['sort'] ?? 'newest') == 'newest' ? 'selected' : '' }}>Terbaru</option>
-                            <option value="oldest" {{ ($filters['sort'] ?? '') == 'oldest' ? 'selected' : '' }}>Terlama</option>
-                            <option value="name_asc" {{ ($filters['sort'] ?? '') == 'name_asc' ? 'selected' : '' }}>Nama A-Z</option>
-                            <option value="name_desc" {{ ($filters['sort'] ?? '') == 'name_desc' ? 'selected' : '' }}>Nama Z-A</option>
-                            <option value="completion" {{ ($filters['sort'] ?? '') == 'completion' ? 'selected' : '' }}>Profil Terlengkap</option>
-                        </select>
+                        <button onclick="switchView('map')" id="mapViewBtn" class="inline-flex min-h-10 flex-1 items-center justify-center gap-2 px-4 text-sm font-semibold text-white/70 transition hover:text-white sm:flex-none">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                            </svg>
+                            Peta
+                        </button>
                     </div>
                 </div>
-            </form>
-
-            <!-- Results -->
-            @if($umkms->count() > 0)
-            <!-- Active Filters Display -->
-            @if(!empty($filters['search']) || !empty($filters['category']) || !empty($filters['district']))
-            <div class="mb-6 flex flex-wrap items-center gap-3">
-                <span class="text-sm font-bold text-gray-400">FILTER AKTIF:</span>
-                @if(!empty($filters['search']))
-                <span class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/30 text-gold-300 px-3 py-1 rounded-lg text-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                    "{{ $filters['search'] }}"
-                    <a href="{{ route('umkm.index', array_merge($filters, ['search' => ''])) }}" class="hover:text-gold-100">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </a>
-                </span>
-                @endif
-                @if(!empty($filters['category']))
-                <span class="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 text-blue-300 px-3 py-1 rounded-lg text-sm">
-                    {{ $categories->find($filters['category'])->nama_kategori ?? 'Kategori' }}
-                    <a href="{{ route('umkm.index', array_merge($filters, ['category' => ''])) }}" class="hover:text-blue-100">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </a>
-                </span>
-                @endif
-                @if(!empty($filters['district']))
-                <span class="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/30 text-green-300 px-3 py-1 rounded-lg text-sm">
-                    {{ $districts->find($filters['district'])->nama_kecamatan ?? 'Kecamatan' }}
-                    <a href="{{ route('umkm.index', array_merge($filters, ['district' => ''])) }}" class="hover:text-green-100">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </a>
-                </span>
-                @endif
-                <a href="{{ route('umkm.index') }}" class="text-sm text-gray-400 hover:text-gold-400 underline">
-                    Hapus semua filter
-                </a>
             </div>
-            @endif
-            
-            <div class="mb-8 text-gray-400">
-                Menampilkan <span class="font-bold text-white">{{ $umkms->total() }}</span> UMKM
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-12">
-                @foreach($umkms as $umkm)
-                <a href="{{ route('umkm.show', $umkm->slug) }}" class="group block rounded-xl bg-arsa-800 border border-arsa-700 overflow-hidden hover:border-gold-500 transition">
-                    {{-- Image --}}
-                    <div class="relative h-40 bg-arsa-700">
-                        @if($umkm->logo_path)
-                        <img src="{{ Storage::url($umkm->logo_path) }}" alt="{{ $umkm->nama_usaha }}" class="w-full h-full object-cover" loading="lazy">
-                        @else
-                        <div class="w-full h-full flex items-center justify-center">
-                            <div class="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center">
-                                <span class="text-sm font-bold text-gold-400">{{ strtoupper(mb_substr($umkm->nama_usaha, 0, 2)) }}</span>
-                            </div>
-                        </div>
-                        @endif
-                    </div>
+        </section>
 
-                    {{-- Content --}}
-                    <div class="p-4">
-                        <h3 class="font-semibold text-white text-sm mb-2 line-clamp-1 group-hover:text-gold-400 transition">{{ $umkm->nama_usaha }}</h3>
-
-                        <div class="flex items-center gap-2 mb-2">
-                            @if(optional($umkm->category)->nama_kategori)
-                            <span class="text-xs text-gold-400 bg-gold-500/10 px-2 py-0.5 rounded">{{ $umkm->category->nama_kategori }}</span>
-                            @endif
-                        </div>
-
-                        <div class="flex items-center justify-between text-xs text-gray-500">
-                            @if(optional($umkm->district)->nama_kecamatan)
-                            <span>📍 {{ $umkm->district->nama_kecamatan }}</span>
-                            @else
-                            <span></span>
-                            @endif
-                            <span class="group-hover:text-gold-400 transition">Lihat →</span>
-                        </div>
-                    </div>
-                </a>
-                @endforeach
-            </div>
-
-            <div class="flex justify-center">
-                {{ $umkms->links() }}
-            </div>
-            @else
-            <div class="bg-arsa-800 border border-arsa-800 p-12 sm:p-16 rounded-xl text-center">
-                <div class="text-6xl mb-6">🔍</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Tidak ada UMKM yang ditemukan</h3>
-                <p class="text-gray-400 mb-8 max-w-md mx-auto">
-                    @if(!empty($filters['search']) || !empty($filters['category']) || !empty($filters['district']))
-                        Coba ubah atau hapus filter pencarian Anda untuk melihat lebih banyak hasil.
-                    @else
-                        Belum ada UMKM yang terdaftar di katalog.
-                    @endif
-                </p>
-                
-                @if(!empty($filters['search']) || !empty($filters['category']) || !empty($filters['district']))
-                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-                    <a href="{{ route('umkm.index') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-500 rounded-lg font-bold text-sm text-black hover:from-gold-600 hover:to-gold-700 transition-all shadow-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                        Lihat Semua UMKM
-                    </a>
-                    <button onclick="window.history.back()" class="inline-flex items-center gap-2 px-6 py-3 bg-arsa-800 border border-arsa-700 rounded-lg font-bold text-sm text-gray-300 hover:text-white hover:border-gold-500/50 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                        </svg>
-                        Kembali
-                    </button>
-                </div>
-                
-                @if($categories->count() > 0)
-                <div class="mt-12 pt-8 border-t border-arsa-700">
-                    <p class="text-sm font-bold text-gray-400 mb-4 tracking-wider">COBA KATEGORI POPULER:</p>
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        @foreach($categories->take(5) as $category)
-                        <a href="{{ route('umkm.index', ['category' => $category->id]) }}" 
-                           class="px-4 py-2 bg-arsa-700 border border-arsa-700 rounded-lg text-gray-300 hover:border-gold-500/50 hover:text-gold-400 transition-all text-sm font-medium">
-                            {{ $category->nama_kategori }}
-                        </a>
-                        @endforeach
-                    </div>
-                </div>
-                @endif
-                @endif
-            </div>
-            @endif
-            </div>
-
-            <!-- Map View Container -->
-            <div id="mapView" class="hidden">
-                <!-- Map Filters -->
-                <form method="GET" class="bg-arsa-800 border border-arsa-800 p-6 rounded-xl mb-8">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <div id="listView">
+                <form method="GET" class="border border-[#ded6c6] bg-white p-4 sm:p-5">
+                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-[1.4fr_0.85fr_0.85fr]">
                         <div>
-                            <label class="block text-sm font-bold text-gray-300 mb-2 tracking-wider">KATEGORI</label>
-                            <select id="map_category_filter" class="w-full px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                            <label class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">Cari Nama Usaha</label>
+                            <input type="text" name="search" value="{{ $filters['search'] ?? '' }}" placeholder="Nama usaha atau deskripsi" class="w-full border-[#d8cebd] bg-[#fbfaf7] px-4 py-3 text-[#141712] placeholder-[#9c9282] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
+                        </div>
+                        <div>
+                            <label class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">KATEGORI</label>
+                            <select name="category" class="w-full border-[#d8cebd] bg-[#fbfaf7] px-4 py-3 text-[#141712] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
                                 <option value="">Semua Kategori</option>
                                 @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                                    <option value="{{ $category->id }}" {{ ($filters['category'] ?? '') == $category->id ? 'selected' : '' }}>{{ $category->nama_kategori }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-300 mb-2 tracking-wider">KECAMATAN</label>
-                            <select id="map_district_filter" class="w-full px-4 py-3 bg-arsa-700 border border-arsa-700 rounded-lg text-white focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all">
+                            <label class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">Kecamatan</label>
+                            <select name="district" class="w-full border-[#d8cebd] bg-[#fbfaf7] px-4 py-3 text-[#141712] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
                                 <option value="">Semua Kecamatan</option>
                                 @foreach($districts as $district)
-                                <option value="{{ $district->id }}">{{ $district->nama_kecamatan }}</option>
+                                    <option value="{{ $district->id }}" {{ ($filters['district'] ?? '') == $district->id ? 'selected' : '' }}>{{ $district->nama_kecamatan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex flex-col gap-3 border-t border-[#ede6da] pt-4 md:flex-row md:items-center md:justify-between">
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <button type="submit" class="inline-flex min-h-11 items-center justify-center bg-[#d4a945] px-5 text-sm font-semibold text-[#14130f] transition hover:bg-[#e2bd62]">
+                                Terapkan Filter
+                            </button>
+                            <a href="{{ route('umkm.index') }}" class="inline-flex min-h-11 items-center justify-center border border-[#cfc5b4] px-5 text-sm font-semibold text-[#3a3f39] transition hover:border-[#141712] hover:text-[#141712]">
+                                Reset
+                            </a>
+                        </div>
+
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                            <label class="text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">Urutkan</label>
+                            <select name="sort" onchange="this.form.submit()" class="min-h-11 border-[#d8cebd] bg-[#fbfaf7] px-4 text-[#141712] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
+                                <option value="newest" {{ ($filters['sort'] ?? 'newest') == 'newest' ? 'selected' : '' }}>Terbaru</option>
+                                <option value="oldest" {{ ($filters['sort'] ?? '') == 'oldest' ? 'selected' : '' }}>Terlama</option>
+                                <option value="name_asc" {{ ($filters['sort'] ?? '') == 'name_asc' ? 'selected' : '' }}>Nama A-Z</option>
+                                <option value="name_desc" {{ ($filters['sort'] ?? '') == 'name_desc' ? 'selected' : '' }}>Nama Z-A</option>
+                                <option value="completion" {{ ($filters['sort'] ?? '') == 'completion' ? 'selected' : '' }}>Profil Terlengkap</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                @if($umkms->count() > 0)
+                    @if(!empty($filters['search']) || !empty($filters['category']) || !empty($filters['district']))
+                        <div class="mt-6 flex flex-wrap items-center gap-2">
+                            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">FILTER AKTIF:</span>
+                            @if(!empty($filters['search']))
+                                <span class="inline-flex items-center gap-2 border border-[#d4a945]/40 bg-[#fff8df] px-3 py-1 text-sm text-[#7d5c18]">"{{ $filters['search'] }}"</span>
+                            @endif
+                            @if(!empty($filters['category']))
+                                <span class="inline-flex items-center gap-2 border border-[#2f9e8f]/30 bg-[#e7f7f4] px-3 py-1 text-sm text-[#1d675d]">{{ $categories->find($filters['category'])->nama_kategori ?? 'Kategori' }}</span>
+                            @endif
+                            @if(!empty($filters['district']))
+                                <span class="inline-flex items-center gap-2 border border-[#2f9e8f]/30 bg-[#e7f7f4] px-3 py-1 text-sm text-[#1d675d]">{{ $districts->find($filters['district'])->nama_kecamatan ?? 'Kecamatan' }}</span>
+                            @endif
+                            <a href="{{ route('umkm.index') }}" class="text-sm font-semibold text-[#141712] underline decoration-[#d4a945] underline-offset-4">Hapus semua</a>
+                        </div>
+                    @endif
+
+                    <div class="mt-7 flex items-center justify-between gap-4">
+                        <p class="text-sm text-[#657066]">Menampilkan <span class="font-semibold text-[#141712]">{{ $umkms->total() }}</span> UMKM</p>
+                    </div>
+
+                    <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        @foreach($umkms as $umkm)
+                            <a href="{{ route('umkm.show', $umkm->slug) }}" class="group overflow-hidden border border-[#ded6c6] bg-white transition hover:-translate-y-0.5 hover:border-[#2f9e8f] hover:shadow-[0_16px_38px_rgba(20,23,18,0.08)]">
+                                <div class="aspect-[4/3] bg-[#ebe4d7]">
+                                    @if($umkm->logo_path)
+                                        <img src="{{ Storage::url($umkm->logo_path) }}" alt="{{ $umkm->nama_usaha }}" class="h-full w-full object-cover" loading="lazy">
+                                    @else
+                                        <div class="flex h-full w-full items-center justify-center bg-[#10130f]">
+                                            <span class="font-display text-4xl font-semibold text-[#d4a945]">{{ strtoupper(mb_substr($umkm->nama_usaha, 0, 2)) }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center justify-between gap-3">
+                                        @if(optional($umkm->category)->nama_kategori)
+                                            <span class="truncate text-xs font-semibold uppercase tracking-[0.16em] text-[#a57924]">{{ $umkm->category->nama_kategori }}</span>
+                                        @endif
+                                        @if(optional($umkm->district)->nama_kecamatan)
+                                            <span class="truncate text-xs text-[#657066]">{{ $umkm->district->nama_kecamatan }}</span>
+                                        @endif
+                                    </div>
+                                    <h3 class="mt-3 text-lg font-semibold text-[#141712] group-hover:text-[#2f9e8f]">{{ $umkm->nama_usaha }}</h3>
+                                    <span class="mt-4 inline-flex text-sm font-semibold text-[#141712] group-hover:text-[#2f9e8f]">Lihat detail</span>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    <div class="mt-10 flex justify-center">
+                        {{ $umkms->links() }}
+                    </div>
+                @else
+                    <div class="mt-8 border border-[#ded6c6] bg-white p-10 text-center">
+                        <h3 class="text-2xl font-semibold text-[#141712]">Tidak ada UMKM yang ditemukan</h3>
+                        <p class="mx-auto mt-3 max-w-md text-[#657066]">
+                            @if(!empty($filters['search']) || !empty($filters['category']) || !empty($filters['district']))
+                                Coba ubah atau hapus filter pencarian untuk melihat lebih banyak hasil.
+                            @else
+                                Belum ada UMKM yang terdaftar di katalog.
+                            @endif
+                        </p>
+                        <a href="{{ route('umkm.index') }}" class="mt-8 inline-flex min-h-11 items-center justify-center bg-[#d4a945] px-6 text-sm font-semibold text-[#14130f] transition hover:bg-[#e2bd62]">
+                            Lihat Semua UMKM
+                        </a>
+                    </div>
+                @endif
+            </div>
+
+            <div id="mapView" class="hidden">
+                <form method="GET" class="mb-6 border border-[#ded6c6] bg-white p-4 sm:p-5">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_1fr_auto]">
+                        <div>
+                            <label class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">Kategori</label>
+                            <select id="map_category_filter" class="w-full border-[#d8cebd] bg-[#fbfaf7] px-4 py-3 text-[#141712] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
+                                <option value="">Semua Kategori</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <label class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[#756b5b]">Kecamatan</label>
+                            <select id="map_district_filter" class="w-full border-[#d8cebd] bg-[#fbfaf7] px-4 py-3 text-[#141712] focus:border-[#2f9e8f] focus:ring-[#2f9e8f]">
+                                <option value="">Semua Kecamatan</option>
+                                @foreach($districts as $district)
+                                    <option value="{{ $district->id }}">{{ $district->nama_kecamatan }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="flex items-end">
-                            <button type="button" onclick="applyMapFilters()" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-500 rounded-lg font-bold text-sm text-black hover:from-gold-600 hover:to-gold-700 transition-all shadow-sm">
+                            <button type="button" onclick="applyMapFilters()" class="inline-flex min-h-11 w-full items-center justify-center bg-[#d4a945] px-5 text-sm font-semibold text-[#14130f] transition hover:bg-[#e2bd62] md:w-auto">
                                 Terapkan Filter
                             </button>
                         </div>
                     </div>
                 </form>
 
-                <!-- Map Container -->
-                <div class="bg-arsa-800 border border-arsa-800 rounded-xl overflow-hidden">
-                    <div id="catalog_map" class="w-full bg-arsa-700" style="height: 600px;"></div>
+                <div class="overflow-hidden border border-[#ded6c6] bg-white">
+                    <div id="catalog_map" class="w-full bg-[#ebe4d7]" style="height: 600px;"></div>
                 </div>
 
-                <!-- Map Info -->
-                <div class="mt-4 bg-arsa-800 border border-arsa-800 rounded-xl p-4">
-                    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+                <div class="mt-4 border border-[#ded6c6] bg-white p-4">
+                    <div class="flex flex-wrap items-center gap-4 text-sm text-[#657066]">
                         <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 bg-gold-500 rounded-full"></div>
-                            <span>UMKM dengan Lokasi</span>
+                            <div class="h-3 w-3 bg-[#d4a945]"></div>
+                            <span>UMKM dengan lokasi</span>
                         </div>
                         <div class="ml-auto">
-                            <span id="map_umkm_count" class="font-semibold text-white">0</span> UMKM ditampilkan
+                            <span id="map_umkm_count" class="font-semibold text-[#141712]">0</span> UMKM ditampilkan
                         </div>
                     </div>
                 </div>
@@ -268,83 +195,58 @@
         </div>
     </div>
 
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Leaflet MarkerCluster CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-    
-    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Leaflet MarkerCluster JS -->
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
     <script>
         let catalogMap;
         let markerClusterGroup;
         let allMarkers = [];
-
-        // UMKM data from server
         const umkmData = @json($umkms->items());
 
-        // Switch between list and map view
         function switchView(view) {
             const listView = document.getElementById('listView');
             const mapView = document.getElementById('mapView');
             const listBtn = document.getElementById('listViewBtn');
             const mapBtn = document.getElementById('mapViewBtn');
-
-            const activeClasses = ['bg-gold-500', 'text-black'];
-            const inactiveClasses = ['text-gray-400', 'hover:text-white'];
+            const activeClasses = ['bg-[#d4a945]', 'text-[#10130f]'];
+            const inactiveClasses = ['text-white/70', 'hover:text-white'];
 
             if (view === 'list') {
                 listView.classList.remove('hidden');
                 mapView.classList.add('hidden');
-                
                 listBtn.classList.add(...activeClasses);
                 listBtn.classList.remove(...inactiveClasses);
                 mapBtn.classList.remove(...activeClasses);
                 mapBtn.classList.add(...inactiveClasses);
-                
                 localStorage.setItem('catalogView', 'list');
             } else {
                 listView.classList.add('hidden');
                 mapView.classList.remove('hidden');
-                
                 mapBtn.classList.add(...activeClasses);
                 mapBtn.classList.remove(...inactiveClasses);
                 listBtn.classList.remove(...activeClasses);
                 listBtn.classList.add(...inactiveClasses);
-                
                 if (!catalogMap) {
                     initCatalogMap();
                 }
-                
                 localStorage.setItem('catalogView', 'map');
-                
-                setTimeout(() => {
-                    if (catalogMap) {
-                        catalogMap.invalidateSize();
-                    }
-                }, 100);
+                setTimeout(() => catalogMap && catalogMap.invalidateSize(), 100);
             }
         }
 
-        // Initialize catalog map
         function initCatalogMap() {
-            // Initialize the map centered on Salatiga
             catalogMap = L.map('catalog_map').setView([-7.3305, 110.5083], 13);
-
-            // Add OpenStreetMap tiles
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors',
                 maxZoom: 19
             }).addTo(catalogMap);
 
-            // Force recalculate size
             setTimeout(function() { catalogMap.invalidateSize(); }, 200);
 
-            // Initialize marker cluster group
             markerClusterGroup = L.markerClusterGroup({
                 maxClusterRadius: 50,
                 spiderfyOnMaxZoom: true,
@@ -352,45 +254,33 @@
                 zoomToBoundsOnClick: true
             });
 
-            // Custom marker icon
-            const goldIcon = L.divIcon({
+            const novaIcon = L.divIcon({
                 className: 'custom-marker',
-                html: '<div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.3);"><div style="transform: rotate(45deg); margin-top: 3px; margin-left: 3px; font-size: 16px;">🏪</div></div>',
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -30]
+                html: '<div style="background:#d4a945;width:28px;height:28px;border:3px solid #fff;box-shadow:0 8px 18px rgba(20,23,18,.28);"></div>',
+                iconSize: [28, 28],
+                iconAnchor: [14, 14],
+                popupAnchor: [0, -14]
             });
 
-            // Add markers for UMKM with location
             let umkmWithLocation = 0;
             umkmData.forEach(umkm => {
                 if (umkm.latitude && umkm.longitude) {
                     umkmWithLocation++;
-                    
-                    const marker = L.marker([umkm.latitude, umkm.longitude], {
-                        icon: goldIcon
-                    });
-
-                    const logoHtml = umkm.logo_path 
-                        ? `<img src="/storage/${umkm.logo_path}" alt="${umkm.nama_usaha}" class="w-16 h-16 object-cover rounded-lg mb-2 mx-auto">`
-                        : '<div class="text-4xl mb-2">🏪</div>';
+                    const marker = L.marker([umkm.latitude, umkm.longitude], { icon: novaIcon });
+                    const logoHtml = umkm.logo_path
+                        ? `<img src="/storage/${umkm.logo_path}" alt="${umkm.nama_usaha}" style="width:72px;height:72px;object-fit:cover;margin:0 auto 10px;">`
+                        : `<div style="width:72px;height:72px;margin:0 auto 10px;background:#10130f;color:#d4a945;display:flex;align-items:center;justify-content:center;font-weight:700;">${umkm.nama_usaha.substring(0, 2).toUpperCase()}</div>`;
 
                     marker.bindPopup(`
-                        <div class="text-center p-2">
+                        <div style="text-align:center;padding:6px;min-width:210px;">
                             ${logoHtml}
-                            <h3 class="font-bold text-lg mb-1">${umkm.nama_usaha}</h3>
-                            <p class="text-sm text-gray-600 mb-1">${umkm.category.nama_kategori}</p>
-                            <p class="text-xs text-gray-500 mb-3">📍 ${umkm.district.nama_kecamatan}</p>
-                            <a href="/umkm/${umkm.slug}" class="inline-block bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-4 py-2 rounded-lg text-sm font-bold hover:from-yellow-600 hover:to-yellow-700 transition-all">
-                                Lihat Detail
-                            </a>
+                            <h3 style="font-weight:700;font-size:16px;margin:0 0 4px;color:#141712;">${umkm.nama_usaha}</h3>
+                            <p style="font-size:13px;margin:0 0 3px;color:#657066;">${umkm.category.nama_kategori}</p>
+                            <p style="font-size:12px;margin:0 0 12px;color:#7b8379;">${umkm.district.nama_kecamatan}</p>
+                            <a href="/umkm/${umkm.slug}" style="display:inline-block;background:#10130f;color:white;padding:8px 12px;font-size:13px;font-weight:700;text-decoration:none;">Lihat Detail</a>
                         </div>
-                    `, {
-                        maxWidth: 250,
-                        className: 'custom-popup'
-                    });
+                    `, { maxWidth: 250, className: 'custom-popup' });
 
-                    // Store marker with metadata for filtering
                     marker.umkmData = {
                         id: umkm.id,
                         category_id: umkm.kategori_id,
@@ -403,83 +293,42 @@
             });
 
             catalogMap.addLayer(markerClusterGroup);
-
-            // Update count
             document.getElementById('map_umkm_count').textContent = umkmWithLocation;
 
-            // Add custom CSS for popup
             const style = document.createElement('style');
             style.textContent = `
-                .custom-popup .leaflet-popup-content-wrapper {
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-                }
-                .custom-popup .leaflet-popup-tip {
-                    background: white;
-                }
-                .marker-cluster-small {
-                    background-color: rgba(245, 158, 11, 0.6);
-                }
-                .marker-cluster-small div {
-                    background-color: rgba(245, 158, 11, 0.8);
-                    color: white;
-                    font-weight: bold;
-                }
-                .marker-cluster-medium {
-                    background-color: rgba(245, 158, 11, 0.6);
-                }
-                .marker-cluster-medium div {
-                    background-color: rgba(245, 158, 11, 0.9);
-                    color: white;
-                    font-weight: bold;
-                }
-                .marker-cluster-large {
-                    background-color: rgba(245, 158, 11, 0.6);
-                }
-                .marker-cluster-large div {
-                    background-color: rgba(245, 158, 11, 1);
-                    color: white;
-                    font-weight: bold;
-                }
+                .custom-popup .leaflet-popup-content-wrapper { border-radius: 0; box-shadow: 0 12px 30px rgba(20,23,18,.22); }
+                .custom-popup .leaflet-popup-tip { background: white; }
+                .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large { background-color: rgba(212,169,69,.34); }
+                .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div { background-color: #d4a945; color: #10130f; font-weight: 700; }
             `;
             document.head.appendChild(style);
         }
 
-        // Apply map filters
         function applyMapFilters() {
             const categoryId = document.getElementById('map_category_filter').value;
             const districtId = document.getElementById('map_district_filter').value;
-
-            // Clear existing markers
             markerClusterGroup.clearLayers();
 
-            // Filter and add markers
             let visibleCount = 0;
             allMarkers.forEach(marker => {
                 const data = marker.umkmData;
                 const categoryMatch = !categoryId || data.category_id == categoryId;
                 const districtMatch = !districtId || data.district_id == districtId;
-
                 if (categoryMatch && districtMatch) {
                     markerClusterGroup.addLayer(marker);
                     visibleCount++;
                 }
             });
 
-            // Update count
             document.getElementById('map_umkm_count').textContent = visibleCount;
-
-            // Fit bounds to visible markers if any
             if (visibleCount > 0) {
                 catalogMap.fitBounds(markerClusterGroup.getBounds(), { padding: [50, 50] });
             }
         }
 
-        // Load saved view preference on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const savedView = localStorage.getItem('catalogView');
-            if (savedView === 'map') {
+            if (localStorage.getItem('catalogView') === 'map') {
                 switchView('map');
             }
         });

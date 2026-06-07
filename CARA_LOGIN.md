@@ -31,11 +31,11 @@ Gunakan salah satu dari akun berikut:
    - Password: `password`
 
 ### User Admin
-- Email: `admin@arsa.com`
+- Email: `admin@novadex.com`
 - Password: `password`
 
 ### Super Admin
-- Email: `superadmin@arsa.com`
+- Email: `superadmin@novadex.com`
 - Password: `password`
 
 ## Cara Akses Dashboard

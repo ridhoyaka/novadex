@@ -1,4 +1,4 @@
-# ARSA v3.0 Dashboard Copy - User Testing Documentation
+# NovaDex v3.0 Dashboard Copy - User Testing Documentation
 
 ## Overview
 
@@ -107,7 +107,7 @@ This directory contains comprehensive documentation for conducting user acceptan
   - 3-4 intermediate (comfortable with WhatsApp)
   - 1-2 advanced (use multiple apps)
 - **Business Types:** Food, crafts, services, retail
-- **ARSA Experience:** Mix of new and existing users
+- **NovaDex Experience:** Mix of new and existing users
 
 ---
 

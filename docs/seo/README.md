@@ -1,8 +1,8 @@
-# ARSA SEO Documentation
+# NovaDex SEO Documentation
 
 ## Overview
 
-This folder contains comprehensive documentation for managing SEO and search engine indexing for the ARSA platform. These guides will help you submit your sitemap to search engines, monitor indexing status, and optimize for search visibility.
+This folder contains comprehensive documentation for managing SEO and search engine indexing for the NovaDex platform. These guides will help you submit your sitemap to search engines, monitor indexing status, and optimize for search visibility.
 
 ---
 
@@ -154,7 +154,7 @@ Use this checklist for your first-time setup:
 
 ## Important URLs
 
-### Your ARSA URLs
+### Your NovaDex URLs
 - **Homepage**: `https://yourdomain.com`
 - **Sitemap**: `https://yourdomain.com/sitemap.xml`
 - **Robots.txt**: `https://yourdomain.com/robots.txt`
@@ -302,8 +302,8 @@ Then resubmit to search engines if needed.
 ## Support & Resources
 
 ### Internal Support
-- **Technical Issues**: Contact ARSA Development Team
-- **Content Issues**: Contact ARSA Admin Team
+- **Technical Issues**: Contact NovaDex Development Team
+- **Content Issues**: Contact NovaDex Admin Team
 - **Strategic Questions**: Contact SEO Manager
 
 ### External Support
@@ -337,7 +337,7 @@ Then resubmit to search engines if needed.
 ### Feedback
 If you find errors or have suggestions for improvement:
 1. Document the issue or suggestion
-2. Contact the ARSA Development Team
+2. Contact the NovaDex Development Team
 3. Propose changes or updates
 
 ---
@@ -371,7 +371,7 @@ You'll know your SEO setup is successful when:
 ---
 
 **Last Updated:** 2026-02-07  
-**Maintained By:** ARSA Development Team  
+**Maintained By:** NovaDex Development Team  
 **Next Review:** 2026-05-07
 
-For questions or support, contact the ARSA Development Team.
+For questions or support, contact the NovaDex Development Team.

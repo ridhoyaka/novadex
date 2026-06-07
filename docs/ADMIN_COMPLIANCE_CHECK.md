@@ -1,7 +1,7 @@
-# ARSA Admin Role - Compliance Check Report
+# NovaDex Admin Role - Compliance Check Report
 
 **Tanggal:** 2026-02-08  
-**Fokus:** Verifikasi fungsi dan tampilan Admin sesuai konteks ARSA  
+**Fokus:** Verifikasi fungsi dan tampilan Admin sesuai konteks NovaDex  
 **Status:** ⚠️ **PERLU PERBAIKAN**
 
 ---

@@ -1,8 +1,8 @@
-# ARSA Platform Enhancement v3.0 - Implementation Tasks
+# NovaDex Platform Enhancement v3.0 - Implementation Tasks
 
 ## Overview
 
-This document outlines the implementation tasks for ARSA v3.0 enhancements. Tasks are organized by phase and priority.
+This document outlines the implementation tasks for NovaDex v3.0 enhancements. Tasks are organized by phase and priority.
 
 **Estimated Timeline:** 3-4 weeks  
 **Team Size:** 1-2 developers  

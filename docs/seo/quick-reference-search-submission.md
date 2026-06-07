@@ -118,7 +118,7 @@ curl https://yourdomain.com/sitemap.xml
 ## Monthly Report Template
 
 ```
-ARSA SEO Monthly Report - [Month Year]
+NovaDex SEO Monthly Report - [Month Year]
 
 Google Search Console:
 - Total Indexed Pages: [X] / [Y published]
@@ -147,7 +147,7 @@ Next Month Goals:
 
 ## Emergency Contacts
 
-- **Technical Issues**: Contact ARSA Development Team
+- **Technical Issues**: Contact NovaDex Development Team
 - **Google Support**: https://support.google.com/webmasters/community
 - **Bing Support**: https://www.bing.com/webmasters/community
 

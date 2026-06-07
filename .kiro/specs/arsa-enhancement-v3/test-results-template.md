@@ -1,4 +1,4 @@
-# ARSA v3.0 Dashboard Copy - User Testing Results
+# NovaDex v3.0 Dashboard Copy - User Testing Results
 
 **Testing Period:** [Start Date] - [End Date]  
 **Total Participants:** [Number]  
@@ -45,7 +45,7 @@
 
 ## Participant Demographics
 
-| ID | Age | Business Type | Digital Literacy | ARSA Experience | Session Date |
+| ID | Age | Business Type | Digital Literacy | NovaDex Experience | Session Date |
 |----|-----|---------------|------------------|-----------------|--------------|
 | P1 | | | | | |
 | P2 | | | | | |
@@ -509,7 +509,7 @@ After implementing fixes:
 - Age: __
 - Business: __
 - Digital Literacy: ☐ Beginner ☐ Intermediate ☐ Advanced
-- ARSA Experience: ☐ New ☐ Existing
+- NovaDex Experience: ☐ New ☐ Existing
 
 **Session Date:** [Date]  
 **Duration:** __ minutes

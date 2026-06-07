@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "ARSA UMKM Catalog Platform - Laravel 11 Application",
+    "description": "NovaDex UMKM Catalog Platform - Laravel 11 Application",
     "keywords": ["laravel", "framework", "umkm", "catalog"],
     "license": "MIT",
     "require": {

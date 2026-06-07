@@ -1,4 +1,4 @@
-# ARSA Admin Role - Fix Summary Report
+# NovaDex Admin Role - Fix Summary Report
 
 **Tanggal:** 2026-02-08  
 **Status:** ✅ **COMPLETED - 100% COMPLIANT**
@@ -7,7 +7,7 @@
 
 ## 🎯 OBJECTIVE
 
-Memperbaiki fungsi Admin agar 100% sesuai dengan konteks ARSA:
+Memperbaiki fungsi Admin agar 100% sesuai dengan konteks NovaDex:
 - ❌ Admin TIDAK BOLEH hapus profil UMKM
 - ❌ Admin TIDAK BOLEH lihat data sensitif (WhatsApp, Email) di export
 - ⚠️ Admin hanya bisa moderate publish untuk content moderation (bukan operasional)
@@ -286,7 +286,7 @@ ActivityLog::create([
 
 ## ✅ FINAL VERDICT
 
-**Status:** ✅ **100% COMPLIANT WITH ARSA CONTEXT**
+**Status:** ✅ **100% COMPLIANT WITH NovaDex CONTEXT**
 
 **Admin Role sekarang:**
 - ✅ Fokus pada kerapian data & kesehatan sistem

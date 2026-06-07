@@ -30,11 +30,26 @@ class DashboardController extends Controller
             'avg_completion_score' => round($avgCompletionScore, 1),
             'total_categories' => Category::count(),
             'total_districts' => District::count(),
+            'recent_activities' => ActivityLog::latest()->limit(5)->get(),
         ];
+
+        $monthExpression = DB::getDriverName() === 'sqlite'
+            ? 'strftime("%Y-%m", created_at)'
+            : 'DATE_FORMAT(created_at, "%Y-%m")';
+
+        $dateExpression = DB::getDriverName() === 'sqlite'
+            ? 'strftime("%Y-%m-%d", created_at)'
+            : 'DATE(created_at)';
+
+        $userGrowth = User::where('created_at', '>=', now()->subDays(30))
+            ->selectRaw($dateExpression . ' as date, COUNT(*) as count')
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
 
         // UMKM Growth Trend (last 12 months) - with fallback for empty data
         $umkmGrowth = UmkmProfile::where('created_at', '>=', now()->subMonths(12))
-            ->selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as count')
+            ->selectRaw($monthExpression . ' as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month')
             ->get();
@@ -46,7 +61,7 @@ class DashboardController extends Controller
 
         // New UMKM per Month (last 6 months)
         $newUmkmPerMonth = UmkmProfile::where('created_at', '>=', now()->subMonths(6))
-            ->selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as count')
+            ->selectRaw($monthExpression . ' as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month')
             ->get();
@@ -89,7 +104,8 @@ class DashboardController extends Controller
             'umkmByCategory',
             'umkmByDistrict',
             'publishedComparison',
-            'dataQuality'
+            'dataQuality',
+            'userGrowth'
         ));
     }
 }

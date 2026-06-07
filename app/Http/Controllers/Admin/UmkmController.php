@@ -141,7 +141,10 @@ class UmkmController extends Controller
             \App\Models\ActivityLog::create([
                 'user_id' => auth()->id(),
                 'action' => 'admin_offline_registration',
+                'model_type' => UmkmProfile::class,
+                'model_id' => $umkm->id,
                 'description' => "Admin created UMKM offline: {$umkm->nama_usaha} for user: {$user->email}. Note: " . ($validated['admin_note'] ?? 'Pendaftaran offline'),
+                'ip_address' => $request->ip(),
             ]);
             
             \DB::commit();
@@ -187,7 +190,10 @@ class UmkmController extends Controller
         \App\Models\ActivityLog::create([
             'user_id' => auth()->id(),
             'action' => 'admin_moderate_publish',
+            'model_type' => UmkmProfile::class,
+            'model_id' => $umkm->id,
             'description' => "Admin " . ($newStatus ? 'published' : 'unpublished') . " UMKM: {$umkm->nama_usaha}. Reason: " . ($validated['reason'] ?? 'Content moderation'),
+            'ip_address' => $request->ip(),
         ]);
         
         // TODO: Send notification to UMKM owner about status change

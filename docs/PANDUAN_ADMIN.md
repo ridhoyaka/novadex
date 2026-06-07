@@ -1,6 +1,6 @@
-# Panduan Admin - Platform ARSA
+# Panduan Admin - Platform NovaDex
 
-Panduan lengkap untuk Admin dalam mengelola Platform ARSA.
+Panduan lengkap untuk Admin dalam mengelola Platform NovaDex.
 
 ## Daftar Isi
 1. [Monitoring Konten UMKM](#monitoring-konten-umkm)

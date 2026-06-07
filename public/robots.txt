@@ -1,4 +1,4 @@
-# robots.txt for ARSA - Aplikasi Registrasi Salatiga
+# robots.txt for NovaDex - Aplikasi Registrasi Salatiga
 
 User-agent: *
 Allow: /

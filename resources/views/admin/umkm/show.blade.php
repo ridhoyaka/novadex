@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-white leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <h2 class="font-semibold text-lg sm:text-xl text-white leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
                 Detail UMKM
             </h2>
             <a href="{{ route('admin.umkm.index') }}" class="text-gold-400 hover:text-gold-300 text-sm font-semibold">
@@ -10,13 +10,13 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+    <div class="py-6 lg:py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <!-- Main Info -->
-            <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-8">
-                <div class="flex items-start gap-8">
+            <div class="bg-arsa-900 border border-arsa-800 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div class="flex flex-col lg:flex-row lg:items-start gap-5 lg:gap-8">
                     <!-- Logo -->
-                    <div class="w-32 h-32 bg-arsa-800 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-arsa-700">
+                    <div class="w-24 h-24 sm:w-32 sm:h-32 bg-arsa-800 rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-arsa-700">
                         @if($umkm->logo_path)
                         <img src="{{ Storage::url($umkm->logo_path) }}" alt="{{ $umkm->nama_usaha }}" class="w-full h-full object-cover rounded-xl">
                         @else
@@ -25,13 +25,13 @@
                     </div>
 
                     <!-- Info -->
-                    <div class="flex-1">
-                        <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                             <div>
-                                <h1 class="text-3xl font-black text-white mb-2" style="font-family: 'Space Grotesk', sans-serif;">
+                                <h1 class="text-2xl sm:text-3xl font-black text-white mb-2 break-words" style="font-family: 'Space Grotesk', sans-serif;">
                                     {{ $umkm->nama_usaha }}
                                 </h1>
-                                <div class="flex items-center gap-3">
+                                <div class="flex flex-wrap items-center gap-2 sm:gap-3">
                                     <span class="px-3 py-1 bg-gold-500/10 text-gold-400 rounded-full text-sm font-semibold">
                                         {{ $umkm->category->nama_kategori }}
                                     </span>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                             <div>
                                 <p class="text-gray-400 text-sm mb-1">Pemilik</p>
                                 <p class="text-white font-semibold">{{ $umkm->user->name }}</p>
@@ -77,11 +77,26 @@
                         </div>
 
                         <!-- Actions -->
-                        <div class="flex gap-3">
+                        <div class="flex flex-col sm:flex-row gap-3">
                             <a href="{{ route('umkm.show', $umkm->slug) }}" target="_blank" 
-                               class="bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-6 py-3 rounded-lg hover:from-gold-600 hover:to-gold-700 transition-all">
+                               class="text-center bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold px-6 py-3 rounded-lg hover:from-gold-600 hover:to-gold-700 transition-all">
                                 Lihat Halaman Publik
                             </a>
+
+                            @if(auth()->user()->isSuperAdmin())
+                            <a href="{{ route('superadmin.umkm.edit', $umkm) }}"
+                               class="text-center bg-arsa-800 text-gold-400 font-bold px-6 py-3 rounded-lg border-2 border-gold-500/60 hover:bg-gold-500/10 transition-all">
+                                Edit Profil
+                            </a>
+                            <form method="POST" action="{{ route('superadmin.umkm.destroy', $umkm) }}" onsubmit="return confirm('Yakin hapus UMKM ini? Tindakan ini tidak dapat dibatalkan.')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="w-full sm:w-auto bg-arsa-800 text-red-400 font-bold px-6 py-3 rounded-lg border-2 border-red-500 hover:bg-red-500/10 transition-all">
+                                    Hapus Profil
+                                </button>
+                            </form>
+                            @endif
                             
                             <!-- Moderate Publish (Content Moderation Only) -->
                             <form action="{{ route('admin.umkm.moderate-publish', $umkm) }}" method="POST" class="inline">
@@ -89,13 +104,13 @@
                                 <input type="hidden" name="action" value="{{ $umkm->is_published ? 'unpublish' : 'publish' }}">
                                 @if(!$umkm->is_published)
                                     <button type="submit" 
-                                            class="bg-arsa-800 text-green-400 font-bold px-6 py-3 rounded-lg border-2 border-green-500 hover:bg-green-500/10 transition-all">
+                                            class="w-full sm:w-auto bg-arsa-800 text-green-400 font-bold px-6 py-3 rounded-lg border-2 border-green-500 hover:bg-green-500/10 transition-all">
                                         Aktifkan Profil
                                     </button>
                                 @else
                                     <button type="button" 
                                             onclick="showUnpublishModal()"
-                                            class="bg-arsa-800 text-red-400 font-bold px-6 py-3 rounded-lg border-2 border-red-500 hover:bg-red-500/10 transition-all">
+                                            class="w-full sm:w-auto bg-arsa-800 text-red-400 font-bold px-6 py-3 rounded-lg border-2 border-red-500 hover:bg-red-500/10 transition-all">
                                         Nonaktifkan Profil
                                     </button>
                                 @endif
@@ -153,16 +168,16 @@
             </div>
 
             <!-- Description -->
-            <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-8">
+            <div class="bg-arsa-900 border border-arsa-800 rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 class="text-xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Deskripsi Usaha</h3>
                 <p class="text-gray-300 leading-relaxed">{{ $umkm->deskripsi }}</p>
             </div>
 
             <!-- Gallery -->
             @if($umkm->photos && count($umkm->photos) > 0)
-            <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-8">
+            <div class="bg-arsa-900 border border-arsa-800 rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 class="text-xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Galeri Foto</h3>
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($umkm->photos as $photo)
                     <div class="aspect-video bg-arsa-800 rounded-lg overflow-hidden">
                         <img src="{{ Storage::url($photo) }}" alt="Gallery" class="w-full h-full object-cover">
@@ -174,7 +189,7 @@
 
             <!-- Location -->
             @if($umkm->latitude && $umkm->longitude)
-            <div class="bg-arsa-900 border border-arsa-800 rounded-xl p-8">
+            <div class="bg-arsa-900 border border-arsa-800 rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 class="text-xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Lokasi</h3>
                 <p class="text-gray-300 mb-4">
                     <strong>Koordinat:</strong> {{ $umkm->latitude }}, {{ $umkm->longitude }}

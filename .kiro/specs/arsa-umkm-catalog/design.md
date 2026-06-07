@@ -1,8 +1,8 @@
-# Design Document: ARSA UMKM Catalog Platform
+# Design Document: NovaDex UMKM Catalog Platform
 
 ## Overview
 
-ARSA is a Laravel 11-based web application that serves as a digital catalog for MSMEs in Salatiga City. The architecture follows Laravel's MVC pattern with clear separation between public-facing catalog features, authenticated UMKM owner dashboards, and administrative interfaces.
+NovaDex is a Laravel 11-based web application that serves as a digital catalog for MSMEs in Salatiga City. The architecture follows Laravel's MVC pattern with clear separation between public-facing catalog features, authenticated UMKM owner dashboards, and administrative interfaces.
 
 The system is designed around four core user experiences:
 1. **Public Catalog** - Unauthenticated browsing and discovery
@@ -756,7 +756,7 @@ User (1) ──────── (N) ActivityLog
 
 ### Dual Testing Approach
 
-ARSA will use both unit testing and property-based testing to ensure comprehensive coverage:
+NovaDex will use both unit testing and property-based testing to ensure comprehensive coverage:
 
 **Unit Tests** focus on:
 - Specific examples of correct behavior

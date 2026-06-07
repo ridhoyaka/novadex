@@ -1,8 +1,8 @@
-# ARSA Platform Enhancement v3.0 - Requirements
+# NovaDex Platform Enhancement v3.0 - Requirements
 
 ## Project Overview
 
-**Project Name:** ARSA Platform Enhancement v3.0  
+**Project Name:** NovaDex Platform Enhancement v3.0  
 **Type:** System Enhancement (NOT Rebuild)  
 **Client:** Solvia  
 **Purpose:** Menyempurnakan fondasi digital UMKM dengan fokus pada discoverability, SEO, dan user experience
@@ -13,7 +13,7 @@
 - Menambah role user baru
 - Menambah fitur transaksi/pembayaran
 - Mengelola data keuangan UMKM
-- Menjadikan ARSA sebagai sistem pembinaan pemerintah
+- Menjadikan NovaDex sebagai sistem pembinaan pemerintah
 - Rebuild sistem yang sudah ada
 
 ✅ **HARUS:**
@@ -353,7 +353,7 @@
 #### 4.2 Trend Visualization
 **As a** superadmin  
 **I want to** see growth trends over time  
-**So that** I can track ARSA adoption and impact
+**So that** I can track NovaDex adoption and impact
 
 **Acceptance Criteria:**
 - [ ] Line chart: UMKM registration over time
@@ -377,7 +377,7 @@
 - [ ] Meta tags properly set (from auto-generation)
 - [ ] Structured data (JSON-LD) embedded
 - [ ] Social sharing preview works (OG tags)
-- [ ] Page title format: "{Nama Usaha} - {Kategori} di {Kecamatan} | ARSA"
+- [ ] Page title format: "{Nama Usaha} - {Kategori} di {Kecamatan} | NovaDex"
 - [ ] Breadcrumb navigation visible
 - [ ] Related UMKM section at bottom
 - [ ] Clear CTA: "Hubungi via WhatsApp" button
@@ -524,7 +524,7 @@ Enhancement is successful if:
 
 ## Risk Assessment
 
-### Risks if System Deviates from ARSA Concept:
+### Risks if System Deviates from NovaDex Concept:
 
 1. **Scope Creep Risk:**
    - Adding transaction features → Becomes marketplace

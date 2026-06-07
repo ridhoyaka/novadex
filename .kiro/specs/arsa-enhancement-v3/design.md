@@ -1,8 +1,8 @@
-# ARSA Platform Enhancement v3.0 - Design Document
+# NovaDex Platform Enhancement v3.0 - Design Document
 
 ## Overview
 
-This design document outlines the technical implementation for ARSA v3.0 enhancements, focusing on:
+This design document outlines the technical implementation for NovaDex v3.0 enhancements, focusing on:
 - SEO optimization (automatic)
 - Profile completion indicators
 - Maps integration (optional for UMKM)
@@ -20,7 +20,7 @@ This design document outlines the technical implementation for ARSA v3.0 enhance
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    ARSA v3.0 Architecture                │
+│                    NovaDex v3.0 Architecture                │
 ├─────────────────────────────────────────────────────────┤
 │                                                           │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
@@ -315,7 +315,7 @@ class SeoService
         $title = implode(' - ', array_filter($parts));
         
         // Add suffix
-        $title .= ' | ARSA';
+        $title .= ' | NovaDex';
         
         // Limit to 60 characters for SEO
         if (strlen($title) > 60) {

@@ -1,4 +1,4 @@
-# STATUS FINAL ARSA PLATFORM
+# STATUS FINAL NovaDex PLATFORM
 ## Platform Katalog Digital UMKM Salatiga
 
 **Tanggal:** 6 Februari 2026  
@@ -75,7 +75,7 @@
 **Website SIAP LAUNCH 100%!**
 
 ### Demo Credentials:
-- **Admin:** admin@arsa.com / password
+- **Admin:** admin@novadex.com / password
 - **UMKM:** busiti@example.com / password
 
 ### URLs:
@@ -101,7 +101,7 @@ Bisa ditambahkan nanti setelah launch:
 
 ## ✅ KESIMPULAN
 
-**ARSA Platform sudah 100% sesuai requirement:**
+**NovaDex Platform sudah 100% sesuai requirement:**
 - ✅ 3 Role (Publik, UMKM, Admin) berfungsi sempurna
 - ✅ Privacy terjaga (admin tidak bisa akses kontak pribadi)
 - ✅ Fokus identitas digital (bukan keuangan)

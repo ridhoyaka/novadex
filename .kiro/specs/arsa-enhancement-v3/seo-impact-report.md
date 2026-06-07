@@ -1,6 +1,6 @@
 # SEO Impact Report: Category Links Implementation
 
-**Project:** ARSA Enhancement v3.0  
+**Project:** NovaDex Enhancement v3.0  
 **Task:** 9.3 Add category links - Test SEO impact  
 **Date:** 2026-02-07  
 **Status:** ✅ PASSED - All tests successful
@@ -147,7 +147,7 @@ The category links implementation has been thoroughly tested for SEO impact. **A
 #### ✅ Page Title with Category
 - **Test**: `page_title_includes_category_for_seo`
 - **Result**: PASSED
-- **Impact**: Page titles follow format: "{Business Name} - {Category} - di {District} | ARSA"
+- **Impact**: Page titles follow format: "{Business Name} - {Category} - di {District} | NovaDex"
 - **SEO Benefit**: Keyword-rich titles improve search rankings
 
 #### ✅ Meta Description

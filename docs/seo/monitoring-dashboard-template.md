@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a template for tracking SEO performance and indexing status for the ARSA platform. Use this to create a regular monitoring routine and track progress over time.
+This document provides a template for tracking SEO performance and indexing status for the NovaDex platform. Use this to create a regular monitoring routine and track progress over time.
 
 ---
 
@@ -298,7 +298,7 @@ This document provides a template for tracking SEO performance and indexing stat
 | ... | | | | | |
 
 **Query Categories:**
-- Brand queries (ARSA, Salatiga UMKM): [X]%
+- Brand queries (NovaDex, Salatiga UMKM): [X]%
 - Category queries (kuliner, fashion, etc.): [X]%
 - Location queries (UMKM di [district]): [X]%
 - Product/service queries: [X]%

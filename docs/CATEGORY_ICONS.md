@@ -1,7 +1,7 @@
 # Panduan Icon Kategori UMKM
 
 ## Overview
-Setiap kategori UMKM di platform ARSA memiliki icon emoji yang unik untuk memudahkan identifikasi visual.
+Setiap kategori UMKM di platform NovaDex memiliki icon emoji yang unik untuk memudahkan identifikasi visual.
 
 ## Daftar Icon Kategori
 
